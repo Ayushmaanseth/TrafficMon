@@ -8,6 +8,14 @@ public class CongestionChargeSystem {
     public static final BigDecimal CHARGE_RATE_POUNDS_PER_MINUTE = new BigDecimal(0.05);
 
     private final List<ZoneBoundaryCrossing> eventLog = new ArrayList<ZoneBoundaryCrossing>();
+    private final AccountsService accountsService;
+    private final PenaltiesService penaltiesService;
+
+    public CongestionChargeSystem(AccountsService accountsService, PenaltiesService penaltiesService) {
+        this.accountsService = accountsService;
+        this.penaltiesService = penaltiesService;
+    }
+
 
     public void vehicleEnteringZone(Vehicle vehicle) {
         eventLog.add(new EntryEvent(vehicle));
@@ -37,15 +45,15 @@ public class CongestionChargeSystem {
 
             if (!checkOrderingOf(crossings)) {
                 OperationsTeam.getInstance().triggerInvestigationInto(vehicle);
+                penaltiesService.triggerInvestigationInto(vehicle);
             } else {
 
                 BigDecimal charge = calculateChargeForTimeInZone(crossings);
 
                 try {
                     RegisteredCustomerAccountsService.getInstance().accountFor(vehicle).deduct(charge);
-                } catch (InsufficientCreditException ice) {
-                    OperationsTeam.getInstance().issuePenaltyNotice(vehicle, charge);
-                } catch (AccountNotRegisteredException e) {
+                    accountsService.accountFor(vehicle);
+                } catch (InsufficientCreditException | AccountNotRegisteredException ice) {
                     OperationsTeam.getInstance().issuePenaltyNotice(vehicle, charge);
                 }
             }
