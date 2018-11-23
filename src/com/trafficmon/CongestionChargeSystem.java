@@ -5,7 +5,7 @@ import java.util.*;
 
 public class CongestionChargeSystem {
 
-    public static final BigDecimal CHARGE_RATE_POUNDS_PER_MINUTE = new BigDecimal(0.05);
+    public static final BigDecimal CHARGE_RATE_POUNDS_PER_MINUTE = new BigDecimal(3000);
 
     private final List<ZoneBoundaryCrossing> eventLog = new ArrayList<ZoneBoundaryCrossing>();
     private final AccountsService accountsService;
@@ -51,8 +51,8 @@ public class CongestionChargeSystem {
                 BigDecimal charge = calculateChargeForTimeInZone(crossings);
 
                 try {
-                    RegisteredCustomerAccountsService.getInstance().accountFor(vehicle).deduct(charge);
                     accountsService.accountFor(vehicle);
+                    RegisteredCustomerAccountsService.getInstance().accountFor(vehicle).deduct(charge);
                 } catch (InsufficientCreditException | AccountNotRegisteredException ice) {
                     OperationsTeam.getInstance().issuePenaltyNotice(vehicle, charge);
                 }

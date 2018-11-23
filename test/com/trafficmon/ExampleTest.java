@@ -55,6 +55,9 @@ public class ExampleTest {
     @Test
     public void CongestionSystemTestOutput() throws AccountNotRegisteredException, InterruptedException {
 
+        context.checking(new Expectations(){{
+            final Account account = exactly(1).of(accountsService).accountFor(Vehicle.withRegistration("Test Vehicle"));
+        }});
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("Test Vehicle"));
         //delaySeconds(5);
         //congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("J091 4PY"));
@@ -84,6 +87,43 @@ public class ExampleTest {
         }});
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
+        congestionChargeSystem.calculateCharges();
+    }
+
+
+    @Test
+    public void RegisteredVehiclesAddition() throws InterruptedException, AccountNotRegisteredException {
+        context.checking(new Expectations(){{
+            exactly(1).of(accountsService).accountFor(Vehicle.withRegistration("K083 1LD"));
+        }});
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
+        delaySeconds(1);
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"));
+        congestionChargeSystem.calculateCharges();
+        assertThat(outContent.toString(),is("Penalty notice for: Vehicle [K083 1LD]\r\n"));
+    }
+
+    @Test
+    public void InvalidExitTriggersInvestigation() throws AccountNotRegisteredException {
+        context.checking(new Expectations(){{
+            exactly(1).of(penaltiesService).triggerInvestigationInto(Vehicle.withRegistration("K083 1LD"));
+
+        }});
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"));
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"));
+        congestionChargeSystem.calculateCharges();
+    }
+
+
+    @Test
+    public void InvalidEntryAndExitTriggersInvestigation() throws AccountNotRegisteredException {
+        context.checking(new Expectations(){{
+            exactly(1).of(accountsService).accountFor(Vehicle.withRegistration("K083 1LD"));
+
+        }});
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("Test Vehicle"));
         congestionChargeSystem.calculateCharges();
     }
 
