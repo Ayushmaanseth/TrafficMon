@@ -8,24 +8,24 @@ public class CongestionChargeSystem {
     public static final BigDecimal CHARGE_RATE_POUNDS_PER_MINUTE = new BigDecimal(3000);
 
     private final List<ZoneBoundaryCrossing> eventLog = new ArrayList<ZoneBoundaryCrossing>();
-    private final AccountsService accountsService;
-    private final PenaltiesService penaltiesService;
+    //private final AccountsService accountsService;
+    //private final PenaltiesService penaltiesService;
 
-    public CongestionChargeSystem(AccountsService accountsService, PenaltiesService penaltiesService) {
-        this.accountsService = accountsService;
-        this.penaltiesService = penaltiesService;
+    public CongestionChargeSystem() {
+        //this.accountsService = accountsService;
+        //this.penaltiesService = penaltiesService;
     }
 
 
-    public void vehicleEnteringZone(Vehicle vehicle) {
-        eventLog.add(new EntryEvent(vehicle));
+    public void vehicleEnteringZone(Vehicle vehicle,int time) {
+        eventLog.add(new EntryEvent(vehicle,time));
     }
 
-    public void vehicleLeavingZone(Vehicle vehicle) {
+    public void vehicleLeavingZone(Vehicle vehicle, int time) {
         if (!previouslyRegistered(vehicle)) {
             return;
         }
-        eventLog.add(new ExitEvent(vehicle));
+        eventLog.add(new ExitEvent(vehicle,time));
     }
 
     public void calculateCharges() {
@@ -45,13 +45,13 @@ public class CongestionChargeSystem {
 
             if (!checkOrderingOf(crossings)) {
                 OperationsTeam.getInstance().triggerInvestigationInto(vehicle);
-                penaltiesService.triggerInvestigationInto(vehicle);
+                //penaltiesService.triggerInvestigationInto(vehicle);
             } else {
 
                 BigDecimal charge = calculateChargeForTimeInZone(crossings);
 
                 try {
-                    accountsService.accountFor(vehicle);
+                    //accountsService.accountFor(vehicle);
                     RegisteredCustomerAccountsService.getInstance().accountFor(vehicle).deduct(charge);
                 } catch (InsufficientCreditException | AccountNotRegisteredException ice) {
                     OperationsTeam.getInstance().issuePenaltyNotice(vehicle, charge);
@@ -65,16 +65,56 @@ public class CongestionChargeSystem {
         BigDecimal charge = new BigDecimal(0);
 
         ZoneBoundaryCrossing lastEvent = crossings.get(0);
-
+        long original_time = lastEvent.timestamp();
+        long iterate_time = lastEvent.timestamp();
+        int counter = 0;
+        int time_temp = 0;
         for (ZoneBoundaryCrossing crossing : crossings.subList(1, crossings.size())) {
 
+
             if (crossing instanceof ExitEvent) {
+
+                if(lastEvent.timestamp() < 14){
+
+
+                        time_temp += crossing.timestamp() - lastEvent.timestamp();
+                        counter++;
+                         if(counter == 2 && crossing.timestamp() - original_time < 4){
+                        counter = 0;
+                        original_time = crossing.timestamp();
+                        continue;
+                    }
+                    else{
+                             charge = charge.add(new BigDecimal(6));
+                         }
+                }
+                else{
+
+                    time_temp += crossing.timestamp() - lastEvent.timestamp();
+                    counter++;
+                    if(counter == 2 && crossing.timestamp() - original_time < 4) {
+                        counter = 0;
+                        original_time = crossing.timestamp();
+                        continue;
+                    }
+                    else{
+                        charge = charge.add(new BigDecimal(4));
+                    }
+                }
+
+                /*
                 charge = charge.add(
                         new BigDecimal(minutesBetween(lastEvent.timestamp(), crossing.timestamp()))
                                 .multiply(CHARGE_RATE_POUNDS_PER_MINUTE));
+                                */
             }
 
             lastEvent = crossing;
+
+        }
+
+        if(time_temp > 4){
+            charge = new BigDecimal(12);
         }
 
         return charge;

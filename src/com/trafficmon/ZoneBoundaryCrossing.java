@@ -5,9 +5,10 @@ public abstract class ZoneBoundaryCrossing {
     private final Vehicle vehicle;
     private final long time;
 
-    public ZoneBoundaryCrossing(Vehicle vehicle) {
+
+    public ZoneBoundaryCrossing(Vehicle vehicle, int time) {
         this.vehicle = vehicle;
-        this.time = System.currentTimeMillis();
+        this.time = time;
     }
 
     public Vehicle getVehicle() {
