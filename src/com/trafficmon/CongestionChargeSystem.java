@@ -17,11 +17,11 @@ public class CongestionChargeSystem {
     }
 
 
-    public void vehicleEnteringZone(Vehicle vehicle,int time) {
+    public void vehicleEnteringZone(Vehicle vehicle,double time) {
         eventLog.add(new EntryEvent(vehicle,time));
     }
 
-    public void vehicleLeavingZone(Vehicle vehicle, int time) {
+    public void vehicleLeavingZone(Vehicle vehicle, double time) {
         if (!previouslyRegistered(vehicle)) {
             return;
         }
@@ -65,41 +65,92 @@ public class CongestionChargeSystem {
         BigDecimal charge = new BigDecimal(0);
 
         ZoneBoundaryCrossing lastEvent = crossings.get(0);
-        long original_time = lastEvent.timestamp();
-        long iterate_time = lastEvent.timestamp();
-        int counter = 0;
+        double original_time = lastEvent.timestamp();
+        double iterate_time = lastEvent.timestamp();
         int time_temp = 0;
+        //int max_time = 4;
+        double first_entry = lastEvent.timestamp();
+        int flag = 0;
         for (ZoneBoundaryCrossing crossing : crossings.subList(1, crossings.size())) {
 
 
             if (crossing instanceof ExitEvent) {
 
-                if(lastEvent.timestamp() < 14){
+                if(lastEvent.timestamp() < 14)
+                {
+
+                    time_temp += crossing.timestamp() - lastEvent.timestamp();
+                    //first_entry = lastEvent.timestamp();
 
 
-                        time_temp += crossing.timestamp() - lastEvent.timestamp();
-                        counter++;
-                         if(counter == 2 && crossing.timestamp() - original_time < 4){
-                        counter = 0;
-                        original_time = crossing.timestamp();
+                    if((crossing.timestamp()-first_entry) < 4 && (flag == 1 ))
+                    {
                         continue;
                     }
-                    else{
-                             charge = charge.add(new BigDecimal(6));
-                         }
+                    else if ((crossing.timestamp()-first_entry) < 4 && (flag == 0 ))
+                    {
+                        flag = 1;
+                        charge = charge.add(new BigDecimal(6));
+
+                    }
+                    else {
+                        first_entry = lastEvent.timestamp();
+                        charge = charge.add(new BigDecimal(6));
+                        flag =1;
+                    }
+
+//                    if((crossing.timestamp()-first_entry) >= 4 )
+//                    {
+//                        first_entry = crossing.timestamp();
+//                        counter = 0;
+//                    }
+//
+
+
+
+//
+//                        counter++;
+//                         if(counter == 2 && crossing.timestamp() - original_time < 4){
+//                        counter = 0;
+//                        original_time = crossing.timestamp();
+//                        continue;
+//                    }
+//                    else{
+//                             charge = charge.add(new BigDecimal(6));
+//                         }
                 }
                 else{
 
+
                     time_temp += crossing.timestamp() - lastEvent.timestamp();
-                    counter++;
-                    if(counter == 2 && crossing.timestamp() - original_time < 4) {
-                        counter = 0;
-                        original_time = crossing.timestamp();
+                    //first_entry = lastEvent.timestamp();
+
+
+                    if((crossing.timestamp()-first_entry) < 4 && (flag == 1 ))
+                    {
                         continue;
                     }
-                    else{
+                    else if ((crossing.timestamp()-first_entry) < 4 && (flag == 0 ))
+                    {
+                        flag = 1;
                         charge = charge.add(new BigDecimal(4));
+
                     }
+                    else {
+                        first_entry = lastEvent.timestamp();
+                        charge = charge.add(new BigDecimal(4));
+                        flag =1;
+                    }
+
+//                    counter++;
+//                    if(counter == 2 && crossing.timestamp() - original_time < 4) {
+//                        counter = 0;
+//                        original_time = crossing.timestamp();
+//                        continue;
+//                    }
+//                    else{
+//                        charge = charge.add(new BigDecimal(4));
+//                    }
                 }
 
                 /*
