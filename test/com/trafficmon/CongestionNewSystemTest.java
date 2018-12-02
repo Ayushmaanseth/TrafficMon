@@ -20,6 +20,12 @@ public class CongestionNewSystemTest {
     private final PrintStream originalOut = System.out;
     private final PrintStream originalErr = System.err;
 
+    @Rule
+    public JUnitRuleMockery context = new JUnitRuleMockery();
+    private AccountsService accountsService = context.mock(AccountsService.class);
+    private PenaltiesService penaltiesService = context.mock(PenaltiesService.class);
+    private CongestionChargeSystem congestionChargeSystem = new CongestionChargeSystem(accountsService,penaltiesService);
+
 
     @Before
     public void setUpStreams() {
@@ -34,8 +40,20 @@ public class CongestionNewSystemTest {
     }
 
     @Test
-    public void EnteringBeforeTwoStayingLessThanFourHours(){
+    public void TimeTest() throws AccountNotRegisteredException {
+        ControllableClock clock = new ControllableClock();
+
+        context.checking(new Expectations(){{
+            exactly(1).of(accountsService).accountFor(Vehicle.withRegistration("K083 1LD"));
+        }});
+        clock.currentTimeIs(2,0);
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"),clock);
+        clock.currentTimeIs(2,30);
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"),clock);
+        congestionChargeSystem.calculateCharges();
 
     }
 
 }
+
+
