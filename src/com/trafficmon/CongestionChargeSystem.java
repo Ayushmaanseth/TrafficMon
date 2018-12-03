@@ -1,8 +1,10 @@
 package com.trafficmon;
 
+import java.awt.*;
 import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.List;
 
 import static java.time.temporal.ChronoUnit.HOURS;
 import static java.time.temporal.ChronoUnit.SECONDS;
@@ -85,27 +87,23 @@ public class CongestionChargeSystem {
         BigDecimal charge = new BigDecimal(0);
 
         ZoneBoundaryCrossing lastEvent = crossings.get(0);
-        int time_temp = 0;
+        double time_temp = 0;
         //int max_time = 4;
         LocalTime first_entry = lastEvent.timestamp();
         int flag = 0;
         for (ZoneBoundaryCrossing crossing : crossings.subList(1, crossings.size())) {
-
-
             if (crossing instanceof ExitEvent) {
 
                 if(lastEvent.timestamp().getHour() < 14)
                 {
 
-                    time_temp += lastEvent.timestamp().until(crossing.timestamp(),SECONDS);
+                    time_temp += lastEvent.timestamp().until(crossing.timestamp(), SECONDS);
                     //first_entry = lastEvent.timestamp();
 
-
-                    if((first_entry.until(crossing.timestamp(),HOURS)) < 4 && (flag == 1 ))
-                    {
+                    if((first_entry.until(crossing.timestamp(),SECONDS)/3600.0) <= 4 && (flag == 1 )) {
                         continue;
                     }
-                    else if ((first_entry.until(crossing.timestamp(),HOURS)) < 4 && (flag == 0 ))
+                    else if ((first_entry.until(crossing.timestamp(),SECONDS)/3600.0) <= 4 && (flag == 0 ))
                     {
                         flag = 1;
                         charge = charge.add(new BigDecimal(6));
@@ -118,18 +116,13 @@ public class CongestionChargeSystem {
                     }
                 }
                 else{
-
-
                     time_temp += lastEvent.timestamp().until(crossing.timestamp(),SECONDS);
                     //first_entry = lastEvent.timestamp();
 
-
-                    if((first_entry.until(crossing.timestamp(),HOURS)) < 4 && (flag == 1))
-                    {
+                    if((first_entry.until(crossing.timestamp(), SECONDS)/3600.0) <= 4 && (flag == 1)) {
                         continue;
                     }
-                    else if ((first_entry.until(crossing.timestamp(),HOURS)) < 4 && (flag == 0))
-                    {
+                    else if ((first_entry.until(crossing.timestamp(),SECONDS)/3600.0) <= 4 && (flag == 0)) {
                         flag = 1;
                         charge = charge.add(new BigDecimal(4));
 
@@ -137,32 +130,18 @@ public class CongestionChargeSystem {
                     else {
                         first_entry = lastEvent.timestamp();
                         charge = charge.add(new BigDecimal(4));
-                        flag =1;
+                        flag = 1;
                     }
-
-//                    counter++;
-//                    if(counter == 2 && crossing.timestamp() - original_time < 4) {
-//                        counter = 0;
-//                        original_time = crossing.timestamp();
-//                        continue;
-//                    }
-//                    else{
-//                        charge = charge.add(new BigDecimal(4));
-//                    }
                 }
 
-                /*
-                charge = charge.add(
-                        new BigDecimal(minutesBetween(lastEvent.timestamp(), crossing.timestamp()))
-                                .multiply(CHARGE_RATE_POUNDS_PER_MINUTE));
-                                */
+
             }
 
             lastEvent = crossing;
 
         }
         //System.out.println(time_temp);
-        if((time_temp/3600) > 4){
+        if((time_temp/3600.00) > 4){
             charge = new BigDecimal(12);
         }
 
@@ -200,8 +179,5 @@ public class CongestionChargeSystem {
 
     private int minutesBetween(long startTimeMs, long endTimeMs) {
         return (int) Math.ceil((endTimeMs - startTimeMs) / (1000.0 * 60.0));
-    }
-
-    public void vehicleLeavingZone(Vehicle a123_xyz, double v) {
     }
 }

@@ -15,19 +15,16 @@ public class Example {
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("A123 XYZ"),clock);
         clock.currentTimeIs(2,30);
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("A123 XYZ"),clock);
-        clock.currentTimeIs(3,00);
+        clock.currentTimeIs(7,00);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("A123 XYZ"),clock);
-        clock.currentTimeIs(3,30);
+        clock.currentTimeIs(7,30);
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("A123 XYZ"),clock);
-        clock.currentTimeIs(5,00);
-        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("A123 XYZ"),clock);
-        clock.currentTimeIs(5,30);
-        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("A123 XYZ"),clock);
-        clock.currentTimeIs(14,00);
-        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("A123 XYZ"),clock);
-        clock.currentTimeIs(15,00);
 
+        clock.currentTimeIs(11,00);
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("A123 XYZ"),clock);
+        clock.currentTimeIs(11,30);
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("A123 XYZ"),clock);
+
         congestionChargeSystem.calculateCharges();
 
     }
