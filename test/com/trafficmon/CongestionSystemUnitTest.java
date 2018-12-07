@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import javax.naming.InsufficientResourcesException;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.math.BigDecimal;
@@ -21,7 +22,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class CongestionSystemUnitTest {
 
     private static final Account ACCOUNT = new Account("ABC", Vehicle.withRegistration("Test Vehicle"), new BigDecimal(10));
-    private static final Account ACCOUNT2 = new Account("Janos",Vehicle.withRegistration("Test"),new BigDecimal(1000));
+    private static final Account ACCOUNT2 = new Account("Janos",Vehicle.withRegistration("Test"),new BigDecimal(1));
     private static final Account ACCOUNT3 = new Account("LOL",Vehicle.withRegistration("K083 1LD"),new BigDecimal(7));
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
@@ -67,10 +68,8 @@ public class CongestionSystemUnitTest {
     public void ChargesFourPoundsForEnteringAfterTwoPM() throws AccountNotRegisteredException {
         List<ZoneBoundaryCrossing> crossings = new ArrayList<>();
         context.checking(new Expectations(){{
-
             exactly(1).of(chargeAlgorithm).calculateChargeForTimeInZone(crossings); will(returnValue(new BigDecimal(4)));
-            exactly(1).of(accountsService).accountFor(Vehicle.withRegistration("Test Vehicle")); will(returnValue(ACCOUNT2));
-
+            exactly(1).of(accountsService).accountFor(Vehicle.withRegistration("Test Vehicle")); will(returnValue(ACCOUNT));
 
         }});
         clock.currentTimeIs(15,0);
@@ -163,15 +162,38 @@ public class CongestionSystemUnitTest {
     }
 
     @Test
-    public void InvalidEntryExitTest() throws AccountNotRegisteredException, InsufficientCreditException {
+    public void InvalidEntryExitTest() throws AccountNotRegisteredException {
         List<ZoneBoundaryCrossing> crossings = new ArrayList<>();
         context.checking(new Expectations(){{
 
             allowing(accountsService).accountFor(Vehicle.withRegistration("Test")); will(throwException(new AccountNotRegisteredException(Vehicle.withRegistration("Test"))));
-
-            //exactly(1).of(accountsService).accountFor(Vehicle.withRegistration("Test Vehicle")).deduct(new BigDecimal(6)); will(returnValue(ACCOUNT));
             exactly(1).of(penaltiesService).issuePenaltyNotice(Vehicle.withRegistration("Test"),new BigDecimal(6));
             allowing(chargeAlgorithm).calculateChargeForTimeInZone(crossings); will(returnValue(new BigDecimal(6)));
+        }});
+        clock.currentTimeIs(10,00);
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("Test"),clock);
+        crossings.add(ZoneBoundaryCrossing.createEntryEventWithClock(Vehicle.withRegistration("Test"),clock));
+        clock.currentTimeIs(11,00);
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("Test"),clock);
+        crossings.add(ZoneBoundaryCrossing.createExitEventWithClock(Vehicle.withRegistration("Test"),clock));
+        congestionChargeSystem.calculateCharges();
+
+        //assertThat(outContent.toString(),containsString("Penalty"));
+
+    }
+
+    @Test
+    public void InsufficientCreditExceptionTest() throws AccountNotRegisteredException {
+        List<ZoneBoundaryCrossing> crossings = new ArrayList<>();
+        final BigDecimal credit = new BigDecimal(6);
+        context.checking(new Expectations(){{
+
+                exactly(1).of(accountsService).accountFor(Vehicle.withRegistration("Test"));
+                will(returnValue(ACCOUNT2));
+
+            //will(throwException(new InsufficientCreditException(credit)));
+            exactly(1).of(penaltiesService).issuePenaltyNotice(Vehicle.withRegistration("Test"), credit);
+            allowing(chargeAlgorithm).calculateChargeForTimeInZone(crossings); will(returnValue(credit));
         }});
         clock.currentTimeIs(10,00);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("Test"),clock);
