@@ -1,30 +1,19 @@
 package com.trafficmon;
 
-import org.jmock.integration.junit4.JUnitRuleMockery;
-import org.junit.Rule;
-
 public class Example {
 
 
 
     public static void main(String[] args) throws Exception {
 
-        ControllableClock clock = new ControllableClock();
-        CongestionChargeSystem congestionChargeSystem = new CongestionChargeSystem();
-        clock.currentTimeIs(2,00);
-        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("A123 XYZ"),clock);
-        clock.currentTimeIs(2,30);
-        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("A123 XYZ"),clock);
-        clock.currentTimeIs(7,00);
-        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("A123 XYZ"),clock);
-        clock.currentTimeIs(7,30);
-        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("A123 XYZ"),clock);
+        //ControllableClock clock = new ControllableClock();
+        CongestionChargeSystem congestionChargeSystem = new builder().build();
 
-        clock.currentTimeIs(11,00);
-        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("A123 XYZ"),clock);
-        clock.currentTimeIs(11,30);
-        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("A123 XYZ"),clock);
 
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("lol"));
+        delaySeconds(1);
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("lol"));
+        //congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("A123 XYZ"));
         congestionChargeSystem.calculateCharges();
 
     }
@@ -33,5 +22,7 @@ public class Example {
     }
     private static void delaySeconds(int secs) throws InterruptedException {
         Thread.sleep(secs * 1000);
+
     }
+
 }

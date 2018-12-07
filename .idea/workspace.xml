@@ -2,10 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55d076cb-9c68-4a4f-8f3f-26c454100b0a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/trafficmon/ChargeAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/trafficmon/FourHourChargeAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/trafficmon/builder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/com/trafficmon/ControllableClockTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalCoursework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FinalCoursework.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalCoursework/com/trafficmon/CongestionChargeSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalCoursework/com/trafficmon/CongestionChargeSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalCoursework/com/trafficmon/EntryEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalCoursework/com/trafficmon/Example.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalCoursework/com/trafficmon/Example.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalCoursework/com/trafficmon/ExitEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalCoursework/com/trafficmon/Vehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalCoursework/com/trafficmon/Vehicle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalCoursework/com/trafficmon/ZoneBoundaryCrossing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalCoursework/com/trafficmon/ZoneBoundaryCrossing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionNewSystemTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionNewSystemTest$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionNewSystemTest$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionNewSystemTest$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionNewSystemTest$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionNewSystemTest$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionNewSystemTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionSystemTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionSystemTest$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionSystemTest$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionSystemTest$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionSystemTest$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionSystemTest$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/FinalCoursework/com/trafficmon/CongestionSystemTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/trafficmon/CongestionChargeSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/trafficmon/CongestionChargeSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/trafficmon/EntryEvent.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/trafficmon/Example.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/trafficmon/Example.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/trafficmon/CongestionNewSystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/trafficmon/CongestionNewSystemTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/trafficmon/ExitEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/trafficmon/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/trafficmon/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/trafficmon/ZoneBoundaryCrossing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/trafficmon/ZoneBoundaryCrossing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/trafficmon/CongestionNewSystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/trafficmon/CongestionSystemIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/trafficmon/CongestionSystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/trafficmon/CongestionSystemUnitTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,25 +67,33 @@
     <SUITE FILE_PATH="coverage/FinalCoursework$ExampleTest_CongestionSystemTestOutput.ic" NAME="ExampleTest.CongestionSystemTestOutput Coverage Results" MODIFIED="1542996937586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.trafficmon.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/FinalCoursework$CongestionSystemUnitTest_CongestionSystemTestEventLog.ic" NAME="CongestionSystemUnitTest.CongestionSystemTestEventLog Coverage Results" MODIFIED="1544199551036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.trafficmon.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/FinalCoursework$All_in_FinalCoursework.ic" NAME="All in FinalCoursework Coverage Results" MODIFIED="1544206049245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="168" />
+    <option name="myElementSize" value="15" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-557548413">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="13" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -66,9 +105,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="28" />
+          <entry key="CLASS" value="47" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="48" />
+          <entry key="JAVA" value="99" />
+          <entry key="UML" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -79,8 +119,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5822" />
-          <entry key="PLAIN_TEXT" value="26" />
+          <entry key="CLASS" value="3" />
+          <entry key="JAVA" value="11205" />
+          <entry key="PLAIN_TEXT" value="93" />
         </counts>
       </usages-collector>
     </session>
@@ -107,33 +148,15 @@
     <favorites_list name="FinalCoursework" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/trafficmon/CongestionChargeSystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="99" column="32" lean-forward="true" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/trafficmon/CongestionSystemTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+            <state relative-caret-position="445">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ControllableClock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -141,41 +164,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/trafficmon/Example.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+            <state relative-caret-position="204">
+              <caret line="16" column="50" lean-forward="true" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ChargeAlgorithm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/trafficmon/CongestionNewSystemTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2616">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/trafficmon/SystemClock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ExitEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -183,26 +185,293 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/RegisteredCustomerAccountsService.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
+            <state relative-caret-position="-673">
+              <caret line="13" column="110" lean-forward="true" selection-start-line="13" selection-start-column="110" selection-end-line="13" selection-end-column="110" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/Account.class">
+        <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/AccountsService.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+            <state relative-caret-position="68">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ZoneBoundaryCrossing.java">
+        <entry file="file://$PROJECT_DIR$/src/com/trafficmon/FourHourChargeAlgorithm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2086#2087#0" expanded="true" />
+                <element signature="e#2125#2126#0" expanded="true" />
+                <element signature="e#2166#2167#0" expanded="true" />
+                <element signature="e#2203#2204#0" expanded="true" />
+                <element signature="e#2243#2244#0" expanded="true" />
+                <element signature="e#2283#2284#0" expanded="true" />
+                <element signature="e#2328#2329#0" expanded="true" />
+                <element signature="e#2370#2371#0" expanded="true" />
+                <element signature="e#2402#2403#0" expanded="true" />
+                <element signature="e#2437#2438#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/com/trafficmon/CongestionSystemUnitTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="169" column="82" selection-start-line="169" selection-start-column="82" selection-end-line="169" selection-end-column="82" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/PenaltiesService.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/com/trafficmon/CongestionSystemIntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+              <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="uml://JAVA/com.trafficmon">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>com.trafficmon</OriginalElement>
+              <nodes>
+                <node x="416.44993315508" y="505.0">com.trafficmon.builder</node>
+                <node x="860.9520053475935" y="178.0">com.trafficmon.ZoneBoundaryCrossing</node>
+                <node x="578.3362967914436" y="386.0">com.trafficmon.CongestionChargeSystem</node>
+                <node x="344.588057040998" y="89.0">com.trafficmon.ControllableClock</node>
+                <node x="268.72727272727263" y="386.0">com.trafficmon.OperationsTeam</node>
+                <node x="386.090909090909" y="178.0">com.trafficmon.AccountNotRegisteredException</node>
+                <node x="849.590909090909" y="0.0">com.trafficmon.Clock</node>
+                <node x="162.9145944741531" y="178.0">com.trafficmon.Account</node>
+                <node x="971.3164215686274" y="386.0">com.trafficmon.FourHourChargeAlgorithm</node>
+                <node x="0.0" y="386.0">com.trafficmon.RegisteredCustomerAccountsService</node>
+                <node x="186.77854278074858" y="257.0">com.trafficmon.AccountsService</node>
+                <node x="626.090909090909" y="257.0">com.trafficmon.InsufficientCreditException</node>
+                <node x="353.090909090909" y="257.0">com.trafficmon.PenaltiesService</node>
+                <node x="956.4520053475935" y="89.0">com.trafficmon.SystemClock</node>
+                <node x="506.588057040998" y="89.0">com.trafficmon.Vehicle</node>
+                <node x="883.5891488413547" y="257.0">com.trafficmon.ChargeAlgorithm</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="com.trafficmon.ZoneBoundaryCrossing" target="com.trafficmon.Vehicle">
+                  <point x="-68.0" y="-14.5" />
+                  <point x="877.9520053475935" y="148.0" />
+                  <point x="571.088057040998" y="148.0" />
+                  <point x="21.5" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.FourHourChargeAlgorithm" target="com.trafficmon.ZoneBoundaryCrossing">
+                  <point x="47.0" y="-14.5" />
+                  <point x="1112.3164215686274" y="237.0" />
+                  <point x="1009.7020053475935" y="237.0" />
+                  <point x="63.75" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.builder" target="com.trafficmon.OperationsTeam">
+                  <point x="-15.454545454545496" y="-14.5" />
+                  <point x="443.4953877005345" y="455.0" />
+                  <point x="336.72727272727263" y="455.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.builder" target="com.trafficmon.ChargeAlgorithm">
+                  <point x="30.909090909090878" y="-14.5" />
+                  <point x="489.85902406417085" y="475.0" />
+                  <point x="960.8164215686274" y="475.0" />
+                  <point x="960.8164215686274" y="366.0" />
+                  <point x="980.8891488413547" y="366.0" />
+                  <point x="27.799999999999955" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.AccountNotRegisteredException" target="com.trafficmon.Vehicle">
+                  <point x="0.0" y="-14.5" />
+                  <point x="495.590909090909" y="158.0" />
+                  <point x="542.4213903743314" y="158.0" />
+                  <point x="-7.166666666666629" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.ChargeAlgorithm" target="com.trafficmon.ZoneBoundaryCrossing">
+                  <point x="0.0" y="-14.5" />
+                  <point x="953.0891488413547" y="237.0" />
+                  <point x="967.2020053475935" y="237.0" />
+                  <point x="21.25" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.builder" target="com.trafficmon.RegisteredCustomerAccountsService">
+                  <point x="-38.636363636363626" y="-14.5" />
+                  <point x="420.31356951871635" y="485.0" />
+                  <point x="120.0" y="485.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.ChargeAlgorithm">
+                  <point x="68.625" y="-14.5" />
+                  <point x="738.4612967914436" y="356.0" />
+                  <point x="897.4891488413546" y="356.0" />
+                  <point x="-55.60000000000002" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.Vehicle">
+                  <point x="-7.625" y="-14.5" />
+                  <point x="662.2112967914436" y="306.0" />
+                  <point x="615.590909090909" y="306.0" />
+                  <point x="615.590909090909" y="158.0" />
+                  <point x="556.7547237076647" y="158.0" />
+                  <point x="7.166666666666629" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.builder" target="com.trafficmon.PenaltiesService">
+                  <point x="-7.727272727272748" y="-14.5" />
+                  <point x="451.2226604278072" y="445.0" />
+                  <point x="415.22727272727263" y="445.0" />
+                  <point x="415.22727272727263" y="366.0" />
+                  <point x="408.090909090909" y="366.0" />
+                  <point x="-11.0" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.builder" target="com.trafficmon.AccountsService">
+                  <point x="-23.181818181818244" y="-14.5" />
+                  <point x="435.76811497326173" y="465.0" />
+                  <point x="258.22727272727263" y="465.0" />
+                  <point x="258.22727272727263" y="366.0" />
+                  <point x="264.36187611408195" y="366.0" />
+                  <point x="11.083333333333371" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.SystemClock" target="com.trafficmon.Clock">
+                  <point x="0.0" y="-14.5" />
+                  <point x="1013.4520053475935" y="59.0" />
+                  <point x="902.790909090909" y="59.0" />
+                  <point x="15.200000000000045" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.ZoneBoundaryCrossing" target="com.trafficmon.Clock">
+                  <point x="0.0" y="-14.5" />
+                  <point x="945.9520053475935" y="69.0" />
+                  <point x="887.590909090909" y="69.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.RegisteredCustomerAccountsService" target="com.trafficmon.Account">
+                  <point x="-80.0" y="-14.5" />
+                  <point x="40.0" y="366.0" />
+                  <point x="99.06911764705865" y="366.0" />
+                  <point x="99.06911764705865" y="237.0" />
+                  <point x="185.6645944741531" y="237.0" />
+                  <point x="-22.75" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.FourHourChargeAlgorithm" target="com.trafficmon.ChargeAlgorithm">
+                  <point x="-47.0" y="-14.5" />
+                  <point x="1018.3164215686274" y="366.0" />
+                  <point x="1008.6891488413546" y="366.0" />
+                  <point x="55.59999999999991" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.AccountsService" target="com.trafficmon.Account">
+                  <point x="0.0" y="-14.5" />
+                  <point x="253.27854278074858" y="237.0" />
+                  <point x="231.1645944741531" y="237.0" />
+                  <point x="22.75" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.InsufficientCreditException">
+                  <point x="7.625" y="-14.5" />
+                  <point x="677.4612967914436" y="316.0" />
+                  <point x="720.590909090909" y="316.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.builder" target="com.trafficmon.FourHourChargeAlgorithm">
+                  <point x="38.636363636363626" y="-14.5" />
+                  <point x="497.5862967914436" y="485.0" />
+                  <point x="1065.3164215686274" y="485.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.ControllableClock" target="com.trafficmon.Clock">
+                  <point x="0.0" y="-14.5" />
+                  <point x="415.588057040998" y="59.0" />
+                  <point x="857.190909090909" y="59.0" />
+                  <point x="-30.399999999999977" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.AccountNotRegisteredException">
+                  <point x="-22.875" y="-14.5" />
+                  <point x="646.9612967914436" y="316.0" />
+                  <point x="495.590909090909" y="316.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.builder" target="com.trafficmon.CongestionChargeSystem">
+                  <point x="7.727272727272748" y="-14.5" />
+                  <point x="466.6772058823527" y="445.0" />
+                  <point x="624.0862967914436" y="445.0" />
+                  <point x="-45.75" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.ZoneBoundaryCrossing" target="com.trafficmon.SystemClock">
+                  <point x="34.0" y="-14.5" />
+                  <point x="979.9520053475935" y="148.0" />
+                  <point x="1013.4520053475935" y="148.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.Account" target="com.trafficmon.Vehicle">
+                  <point x="-22.75" y="-14.5" />
+                  <point x="185.6645944741531" y="138.0" />
+                  <point x="513.7547237076647" y="138.0" />
+                  <point x="-35.83333333333337" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.RegisteredCustomerAccountsService" target="com.trafficmon.AccountsService">
+                  <point x="0.0" y="-14.5" />
+                  <point x="120.0" y="356.0" />
+                  <point x="197.8618761140819" y="356.0" />
+                  <point x="-55.416666666666686" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.OperationsTeam" target="com.trafficmon.PenaltiesService">
+                  <point x="-34.0" y="-14.5" />
+                  <point x="302.72727272727263" y="366.0" />
+                  <point x="364.090909090909" y="366.0" />
+                  <point x="-55.0" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.PenaltiesService">
+                  <point x="-38.125" y="-14.5" />
+                  <point x="631.7112967914436" y="326.0" />
+                  <point x="474.090909090909" y="326.0" />
+                  <point x="55.0" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.ZoneBoundaryCrossing">
+                  <point x="38.125" y="-14.5" />
+                  <point x="707.9612967914436" y="336.0" />
+                  <point x="843.965909090909" y="336.0" />
+                  <point x="843.965909090909" y="227.0" />
+                  <point x="882.2020053475935" y="227.0" />
+                  <point x="-63.75" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.AccountsService">
+                  <point x="-83.875" y="-14.5" />
+                  <point x="585.9612967914436" y="356.0" />
+                  <point x="286.5285427807486" y="356.0" />
+                  <point x="33.25" y="14.5" />
+                </edge>
+                <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.Clock">
+                  <point x="22.875" y="-14.5" />
+                  <point x="692.7112967914436" y="326.0" />
+                  <point x="825.590909090909" y="326.0" />
+                  <point x="825.590909090909" y="69.0" />
+                  <point x="872.390909090909" y="69.0" />
+                  <point x="-15.200000000000045" y="14.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.1313691507798962" x="398.94742686562256" y="459.73018145401636" />
+              <SelectedNodes />
+              <Categories />
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
             </state>
           </provider>
         </entry>
@@ -213,8 +482,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -225,6 +494,9 @@
       <find>randomCr</find>
       <find>previously</find>
       <find>times</find>
+      <find>addCh</find>
+      <find>eventLog</find>
+      <find>Clock</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -237,17 +509,26 @@
         <option value="$PROJECT_DIR$/test/CongestionSystemTest.java" />
         <option value="$PROJECT_DIR$/test/com/trafficmon/ExampleTestTest.java" />
         <option value="$PROJECT_DIR$/test/com/trafficmon/ExampleTest.java" />
-        <option value="$PROJECT_DIR$/src/com/trafficmon/SystemClock.java" />
-        <option value="$PROJECT_DIR$/src/com/trafficmon/EntryEvent.java" />
-        <option value="$PROJECT_DIR$/src/com/trafficmon/ExitEvent.java" />
         <option value="$PROJECT_DIR$/src/com/trafficmon/ControllableClock.java" />
         <option value="$PROJECT_DIR$/src/com/trafficmon/Clock.java" />
-        <option value="$PROJECT_DIR$/src/com/trafficmon/ZoneBoundaryCrossing.java" />
         <option value="$PROJECT_DIR$/src/com/trafficmon.java" />
         <option value="$PROJECT_DIR$/test/com/trafficmon/ControllableClock.java" />
-        <option value="$PROJECT_DIR$/test/com/trafficmon/CongestionSystemTest.java" />
-        <option value="$PROJECT_DIR$/src/com/trafficmon/Example.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/Vehicle.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/EntryEventBuilder.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/SystemClock.java" />
+        <option value="$PROJECT_DIR$/test/com/trafficmon/ControllableClockTest.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/ChargeAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/EntryEvent.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/ExitEvent.java" />
         <option value="$PROJECT_DIR$/test/com/trafficmon/CongestionNewSystemTest.java" />
+        <option value="$PROJECT_DIR$/test/com/trafficmon/CongestionSystemTest.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/CongestionChargeSystemBuilder.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/builder.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/ZoneBoundaryCrossing.java" />
+        <option value="$PROJECT_DIR$/test/com/trafficmon/CongestionSystemIntegrationTest.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/FourHourChargeAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/com/trafficmon/Example.java" />
+        <option value="$PROJECT_DIR$/test/com/trafficmon/CongestionSystemUnitTest.java" />
         <option value="$PROJECT_DIR$/src/com/trafficmon/CongestionChargeSystem.java" />
       </list>
     </option>
@@ -265,9 +546,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="665" />
-    <option name="width" value="1255" />
-    <option name="height" value="1030" />
+    <option name="x" value="20" />
+    <option name="y" value="40" />
+    <option name="width" value="1400" />
+    <option name="height" value="775" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -275,7 +557,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,6 +568,19 @@
               <item name="FinalCoursework" type="b2602c69:ProjectViewProjectNode" />
               <item name="FinalCoursework" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FinalCoursework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FinalCoursework" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="trafficmon-externals.jar" type="ab9368bb:PsiFileNode" />
+            </path>
+            <path>
+              <item name="FinalCoursework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FinalCoursework" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="trafficmon-externals.jar" type="ab9368bb:PsiFileNode" />
+              <item name="trafficmon" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FinalCoursework" type="b2602c69:ProjectViewProjectNode" />
@@ -314,27 +608,29 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="{&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="plugins&#9;FILE&#9;jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/jdk.jlink/jdk/tools/jlink/resources/plugins.java&#10;plant&#9;PSI&#9;JAVA://org.plantuml.idea.lang.PlantIUmlFileType&#10;{&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543868931162" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544206569667" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="extract.method.default.visibility" value="private" />
+    <property name="extract.method.default.visibility" value="public" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/com" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -347,6 +643,7 @@
       <recent name="com.trafficmon" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.trafficmon.FourHourChargeAlgorithm" />
       <recent name="com.trafficmon" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -368,8 +665,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CongestionSystemTest">
-    <configuration name="CongestionNewSystemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in FinalCoursework">
+    <configuration name="Example" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.trafficmon.Example" />
       <module name="FinalCoursework" />
       <extension name="coverage">
         <pattern>
@@ -377,13 +675,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.trafficmon" />
-      <option name="MAIN_CLASS_NAME" value="com.trafficmon.CongestionNewSystemTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CongestionNewSystemTest.TestCorrectChargesForMoreThanFourHours" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in FinalCoursework" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FinalCoursework" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CongestionSystemUnitTest.AccountServiceCall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FinalCoursework" />
       <extension name="coverage">
         <pattern>
@@ -392,14 +696,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.trafficmon" />
-      <option name="MAIN_CLASS_NAME" value="com.trafficmon.CongestionNewSystemTest" />
-      <option name="METHOD_NAME" value="TestCorrectChargesForMoreThanFourHours" />
+      <option name="MAIN_CLASS_NAME" value="com.trafficmon.CongestionSystemUnitTest" />
+      <option name="METHOD_NAME" value="AccountServiceCall" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CongestionNewSystemTest.TestSystemClock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CongestionSystemUnitTest.ChargesFourPoundsForEnteringAfterTwoPM" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FinalCoursework" />
       <extension name="coverage">
         <pattern>
@@ -408,14 +712,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.trafficmon" />
-      <option name="MAIN_CLASS_NAME" value="com.trafficmon.CongestionNewSystemTest" />
-      <option name="METHOD_NAME" value="TestSystemClock" />
+      <option name="MAIN_CLASS_NAME" value="com.trafficmon.CongestionSystemUnitTest" />
+      <option name="METHOD_NAME" value="ChargesFourPoundsForEnteringAfterTwoPM" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CongestionNewSystemTest.TimeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CongestionSystemUnitTest.InvalidEntryExitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FinalCoursework" />
       <extension name="coverage">
         <pattern>
@@ -424,41 +728,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.trafficmon" />
-      <option name="MAIN_CLASS_NAME" value="com.trafficmon.CongestionNewSystemTest" />
-      <option name="METHOD_NAME" value="TimeTest" />
+      <option name="MAIN_CLASS_NAME" value="com.trafficmon.CongestionSystemUnitTest" />
+      <option name="METHOD_NAME" value="InvalidEntryExitTest" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CongestionSystemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FinalCoursework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.trafficmon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.trafficmon" />
-      <option name="MAIN_CLASS_NAME" value="com.trafficmon.CongestionSystemTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.CongestionNewSystemTest.TimeTest" />
-      <item itemvalue="JUnit.CongestionNewSystemTest" />
-      <item itemvalue="JUnit.CongestionNewSystemTest.TestCorrectChargesForMoreThanFourHours" />
-      <item itemvalue="JUnit.CongestionNewSystemTest.TestSystemClock" />
-      <item itemvalue="JUnit.CongestionSystemTest" />
+      <item itemvalue="JUnit.All in FinalCoursework" />
+      <item itemvalue="JUnit.CongestionSystemUnitTest.AccountServiceCall" />
+      <item itemvalue="JUnit.CongestionSystemUnitTest.ChargesFourPoundsForEnteringAfterTwoPM" />
+      <item itemvalue="JUnit.CongestionSystemUnitTest.InvalidEntryExitTest" />
+      <item itemvalue="Application.Example" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CongestionSystemTest" />
-        <item itemvalue="JUnit.CongestionNewSystemTest" />
-        <item itemvalue="JUnit.CongestionNewSystemTest.TestSystemClock" />
-        <item itemvalue="JUnit.CongestionNewSystemTest.TimeTest" />
-        <item itemvalue="JUnit.CongestionNewSystemTest.TestCorrectChargesForMoreThanFourHours" />
+        <item itemvalue="JUnit.All in FinalCoursework" />
+        <item itemvalue="JUnit.CongestionSystemUnitTest.InvalidEntryExitTest" />
+        <item itemvalue="Application.Example" />
+        <item itemvalue="JUnit.CongestionSystemUnitTest.ChargesFourPoundsForEnteringAfterTwoPM" />
+        <item itemvalue="JUnit.CongestionSystemUnitTest.AccountServiceCall" />
       </list>
     </recent_temporary>
   </component>
@@ -482,44 +772,50 @@
       <workItem from="1543775390284" duration="203000" />
       <workItem from="1543777697559" duration="234000" />
       <workItem from="1543796952314" duration="68000" />
-      <workItem from="1543860590896" duration="8184000" />
+      <workItem from="1543860590896" duration="14558000" />
+      <workItem from="1543875929606" duration="1780000" />
+      <workItem from="1543878194327" duration="979000" />
+      <workItem from="1543922921052" duration="10621000" />
+      <workItem from="1543974956549" duration="7503000" />
+      <workItem from="1544018461410" duration="62814000" />
+      <workItem from="1544196005711" duration="9223000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CongestionNewSystemTest_TestCorrectChargesForMoreThanFourHours - 2018.12.03 at 19h 59m 48s.xml">
-      <configuration name="CongestionNewSystemTest.TestCorrectChargesForMoreThanFourHours" configurationId="JUnit" />
+    <history-entry file="CongestionSystemUnitTest_InvalidEntryExitTest - 2018.12.07 at 17h 43m 32s.xml">
+      <configuration name="CongestionSystemUnitTest.InvalidEntryExitTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CongestionNewSystemTest_TestCorrectChargesForMoreThanFourHours - 2018.12.03 at 19h 59m 58s.xml">
-      <configuration name="CongestionNewSystemTest.TestCorrectChargesForMoreThanFourHours" configurationId="JUnit" />
+    <history-entry file="CongestionSystemUnitTest_InvalidEntryExitTest - 2018.12.07 at 17h 50m 02s.xml">
+      <configuration name="CongestionSystemUnitTest.InvalidEntryExitTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CongestionNewSystemTest_TimeTest - 2018.12.03 at 20h 01m 24s.xml">
-      <configuration name="CongestionNewSystemTest.TimeTest" configurationId="JUnit" />
+    <history-entry file="CongestionSystemUnitTest_InvalidEntryExitTest - 2018.12.07 at 17h 50m 51s.xml">
+      <configuration name="CongestionSystemUnitTest.InvalidEntryExitTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CongestionNewSystemTest_TestSystemClock - 2018.12.03 at 20h 05m 52s.xml">
-      <configuration name="CongestionNewSystemTest.TestSystemClock" configurationId="JUnit" />
+    <history-entry file="CongestionSystemUnitTest_InvalidEntryExitTest - 2018.12.07 at 18h 01m 12s.xml">
+      <configuration name="CongestionSystemUnitTest.InvalidEntryExitTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CongestionNewSystemTest_TestSystemClock - 2018.12.03 at 20h 06m 09s.xml">
-      <configuration name="CongestionNewSystemTest.TestSystemClock" configurationId="JUnit" />
+    <history-entry file="CongestionSystemUnitTest_InvalidEntryExitTest - 2018.12.07 at 18h 01m 48s.xml">
+      <configuration name="CongestionSystemUnitTest.InvalidEntryExitTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CongestionNewSystemTest - 2018.12.03 at 20h 07m 07s.xml">
-      <configuration name="CongestionNewSystemTest" configurationId="JUnit" />
+    <history-entry file="CongestionSystemUnitTest_InvalidEntryExitTest - 2018.12.07 at 18h 04m 57s.xml">
+      <configuration name="CongestionSystemUnitTest.InvalidEntryExitTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CongestionSystemTest - 2018.12.03 at 20h 07m 14s.xml">
-      <configuration name="CongestionSystemTest" configurationId="JUnit" />
+    <history-entry file="CongestionSystemUnitTest_InvalidEntryExitTest - 2018.12.07 at 18h 05m 32s.xml">
+      <configuration name="CongestionSystemUnitTest.InvalidEntryExitTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CongestionSystemTest - 2018.12.03 at 20h 07m 28s.xml">
-      <configuration name="CongestionSystemTest" configurationId="JUnit" />
+    <history-entry file="CongestionSystemUnitTest_InvalidEntryExitTest - 2018.12.07 at 18h 07m 05s.xml">
+      <configuration name="CongestionSystemUnitTest.InvalidEntryExitTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CongestionSystemTest - 2018.12.03 at 20h 08m 26s.xml">
-      <configuration name="CongestionSystemTest" configurationId="JUnit" />
+    <history-entry file="All_in_FinalCoursework - 2018.12.07 at 18h 07m 25s.xml">
+      <configuration name="All in FinalCoursework" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CongestionSystemTest - 2018.12.03 at 20h 08m 41s.xml">
-      <configuration name="CongestionSystemTest" configurationId="JUnit" />
+    <history-entry file="All_in_FinalCoursework - 2018.12.07 at 18h 07m 34s.xml">
+      <configuration name="All in FinalCoursework" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67584000" />
+    <option name="totallyTimeSpent" value="166878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -530,31 +826,37 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.5010571" side_tool="true" weight="0.24966443" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.4989429" visible="true" weight="0.2624161" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4989429" visible="true" weight="0.3375839" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32907802" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.20851064" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.20851064" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50067115" side_tool="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.32624114" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49932885" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32624114" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3248227" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="right" id="Theme Preview" order="1" />
-      <window_info anchor="right" id="Database" order="2" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Maven Projects" order="6" sideWeight="0.4989429" weight="0.11275168" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.31879196" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="12" weight="0.32907802" />
+      <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.32907802" />
+      <window_info anchor="bottom" id="Duplicates" order="14" weight="0.32907802" />
+      <window_info anchor="right" id="PlantUML" order="0" weight="0.32348993" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Maven Projects" order="7" sideWeight="0.4989429" weight="0.11275168" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="10" side_tool="true" visible="true" weight="0.019463087" />
+      <window_info anchor="right" x="93" y="93" width="1350" height="638" id="DSM" order="11" type="FLOATING" />
+      <window_info anchor="right" id="Module Dependencies" order="12" weight="0.3295302" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,10 +870,57 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/trafficmon/ExampleTestTest.java" />
-    <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/AccountNotRegisteredException.class">
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/EntryEventBuilder.java" />
+    <entry file="jar://$USER_HOME$/Downloads/plantuml4idea/lib/plantuml4idea.jar!/org/plantuml/idea/lang/PlantIUmlFileType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.trafficmon.CongestionChargeSystem">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.trafficmon.CongestionChargeSystem</OriginalElement>
+          <nodes>
+            <node x="" y="">com.trafficmon.CongestionChargeSystem</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="92.0" y="15.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ChargeHelperBuilder.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ZoneBoundaryCrossingBuilder.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ControllableClock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/SystemClock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding>
+            <element signature="e#139#140#0" expanded="true" />
+            <element signature="e#177#178#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/jdk.jlink/jdk/tools/jlink/resources/plugins.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -582,6 +931,152 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/AccountNotRegisteredException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/OperationsTeam.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/chargeCalculator.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/Account.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/Clock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ExitEvent.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/EntryEvent.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/Vehicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding>
+            <element signature="e#245#246#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/trafficmon/ControllableClockTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="" y="">com</node>
+            <node x="" y="">netscape</node>
+            <node x="" y="">fileTemplates</node>
+            <node x="" y="">toolbarButtonGraphics</node>
+            <node x="" y="">sun</node>
+            <node x="" y="">stdlib</node>
+            <node x="" y="">sprites</node>
+            <node x="" y="">jcckit</node>
+            <node x="" y="">gen</node>
+            <node x="" y="">groovyjarjarasm</node>
+            <node x="" y="">java</node>
+            <node x="" y="">javax</node>
+            <node x="" y="">intentionDescriptions</node>
+            <node x="" y="">smetana</node>
+            <node x="" y="">javafx</node>
+            <node x="" y="">net</node>
+            <node x="" y="">ext</node>
+            <node x="" y="">images</node>
+            <node x="" y="">junit</node>
+            <node x="" y="">oracle</node>
+            <node x="" y="">org</node>
+            <node x="" y="">h</node>
+            <node x="" y="">META-INF</node>
+            <node x="" y="">jdk</node>
+            <node x="" y="">groovy</node>
+            <node x="" y="">groovyjarjarcommonscli</node>
+            <node x="" y="">groovyjarjarantlr</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.6583463338533542" x="293.0" y="311.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/CongestionChargeSystemBuilder.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/builder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ZoneBoundaryCrossing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2021#2022#0" expanded="true" />
+            <element signature="e#2084#2085#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ChargeAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/FourHourChargeAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2086#2087#0" expanded="true" />
+            <element signature="e#2125#2126#0" expanded="true" />
+            <element signature="e#2166#2167#0" expanded="true" />
+            <element signature="e#2203#2204#0" expanded="true" />
+            <element signature="e#2243#2244#0" expanded="true" />
+            <element signature="e#2283#2284#0" expanded="true" />
+            <element signature="e#2328#2329#0" expanded="true" />
+            <element signature="e#2370#2371#0" expanded="true" />
+            <element signature="e#2402#2403#0" expanded="true" />
+            <element signature="e#2437#2438#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/PenaltiesService.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -589,108 +1084,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/Clock.java">
+    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/Example.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="204">
+          <caret line="16" column="50" lean-forward="true" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/trafficmon.java" />
     <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/AccountsService.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/Vehicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/EntryEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/OperationsTeam.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="68">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/RegisteredCustomerAccountsService.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
+        <state relative-caret-position="-673">
+          <caret line="13" column="110" lean-forward="true" selection-start-line="13" selection-start-column="110" selection-end-line="13" selection-end-column="110" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/trafficmon-externals.jar!/com/trafficmon/Account.class">
+    <entry file="file://$PROJECT_DIR$/test/com/trafficmon/CongestionSystemUnitTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/Example.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ZoneBoundaryCrossing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/SystemClock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/trafficmon/CongestionSystemTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ControllableClock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/trafficmon/ExitEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/trafficmon/CongestionNewSystemTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2616">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="105">
+          <caret line="169" column="82" selection-start-line="169" selection-start-column="82" selection-end-line="169" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -699,8 +1117,240 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/trafficmon/CongestionChargeSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="99" column="32" lean-forward="true" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="32" />
+        <state relative-caret-position="445">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.trafficmon">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.trafficmon</OriginalElement>
+          <nodes>
+            <node x="416.44993315508" y="505.0">com.trafficmon.builder</node>
+            <node x="860.9520053475935" y="178.0">com.trafficmon.ZoneBoundaryCrossing</node>
+            <node x="578.3362967914436" y="386.0">com.trafficmon.CongestionChargeSystem</node>
+            <node x="344.588057040998" y="89.0">com.trafficmon.ControllableClock</node>
+            <node x="268.72727272727263" y="386.0">com.trafficmon.OperationsTeam</node>
+            <node x="386.090909090909" y="178.0">com.trafficmon.AccountNotRegisteredException</node>
+            <node x="849.590909090909" y="0.0">com.trafficmon.Clock</node>
+            <node x="162.9145944741531" y="178.0">com.trafficmon.Account</node>
+            <node x="971.3164215686274" y="386.0">com.trafficmon.FourHourChargeAlgorithm</node>
+            <node x="0.0" y="386.0">com.trafficmon.RegisteredCustomerAccountsService</node>
+            <node x="186.77854278074858" y="257.0">com.trafficmon.AccountsService</node>
+            <node x="626.090909090909" y="257.0">com.trafficmon.InsufficientCreditException</node>
+            <node x="353.090909090909" y="257.0">com.trafficmon.PenaltiesService</node>
+            <node x="956.4520053475935" y="89.0">com.trafficmon.SystemClock</node>
+            <node x="506.588057040998" y="89.0">com.trafficmon.Vehicle</node>
+            <node x="883.5891488413547" y="257.0">com.trafficmon.ChargeAlgorithm</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.trafficmon.ZoneBoundaryCrossing" target="com.trafficmon.Vehicle">
+              <point x="-68.0" y="-14.5" />
+              <point x="877.9520053475935" y="148.0" />
+              <point x="571.088057040998" y="148.0" />
+              <point x="21.5" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.FourHourChargeAlgorithm" target="com.trafficmon.ZoneBoundaryCrossing">
+              <point x="47.0" y="-14.5" />
+              <point x="1112.3164215686274" y="237.0" />
+              <point x="1009.7020053475935" y="237.0" />
+              <point x="63.75" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.builder" target="com.trafficmon.OperationsTeam">
+              <point x="-15.454545454545496" y="-14.5" />
+              <point x="443.4953877005345" y="455.0" />
+              <point x="336.72727272727263" y="455.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.builder" target="com.trafficmon.ChargeAlgorithm">
+              <point x="30.909090909090878" y="-14.5" />
+              <point x="489.85902406417085" y="475.0" />
+              <point x="960.8164215686274" y="475.0" />
+              <point x="960.8164215686274" y="366.0" />
+              <point x="980.8891488413547" y="366.0" />
+              <point x="27.799999999999955" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.AccountNotRegisteredException" target="com.trafficmon.Vehicle">
+              <point x="0.0" y="-14.5" />
+              <point x="495.590909090909" y="158.0" />
+              <point x="542.4213903743314" y="158.0" />
+              <point x="-7.166666666666629" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.ChargeAlgorithm" target="com.trafficmon.ZoneBoundaryCrossing">
+              <point x="0.0" y="-14.5" />
+              <point x="953.0891488413547" y="237.0" />
+              <point x="967.2020053475935" y="237.0" />
+              <point x="21.25" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.builder" target="com.trafficmon.RegisteredCustomerAccountsService">
+              <point x="-38.636363636363626" y="-14.5" />
+              <point x="420.31356951871635" y="485.0" />
+              <point x="120.0" y="485.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.ChargeAlgorithm">
+              <point x="68.625" y="-14.5" />
+              <point x="738.4612967914436" y="356.0" />
+              <point x="897.4891488413546" y="356.0" />
+              <point x="-55.60000000000002" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.Vehicle">
+              <point x="-7.625" y="-14.5" />
+              <point x="662.2112967914436" y="306.0" />
+              <point x="615.590909090909" y="306.0" />
+              <point x="615.590909090909" y="158.0" />
+              <point x="556.7547237076647" y="158.0" />
+              <point x="7.166666666666629" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.builder" target="com.trafficmon.PenaltiesService">
+              <point x="-7.727272727272748" y="-14.5" />
+              <point x="451.2226604278072" y="445.0" />
+              <point x="415.22727272727263" y="445.0" />
+              <point x="415.22727272727263" y="366.0" />
+              <point x="408.090909090909" y="366.0" />
+              <point x="-11.0" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.builder" target="com.trafficmon.AccountsService">
+              <point x="-23.181818181818244" y="-14.5" />
+              <point x="435.76811497326173" y="465.0" />
+              <point x="258.22727272727263" y="465.0" />
+              <point x="258.22727272727263" y="366.0" />
+              <point x="264.36187611408195" y="366.0" />
+              <point x="11.083333333333371" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.SystemClock" target="com.trafficmon.Clock">
+              <point x="0.0" y="-14.5" />
+              <point x="1013.4520053475935" y="59.0" />
+              <point x="902.790909090909" y="59.0" />
+              <point x="15.200000000000045" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.ZoneBoundaryCrossing" target="com.trafficmon.Clock">
+              <point x="0.0" y="-14.5" />
+              <point x="945.9520053475935" y="69.0" />
+              <point x="887.590909090909" y="69.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.RegisteredCustomerAccountsService" target="com.trafficmon.Account">
+              <point x="-80.0" y="-14.5" />
+              <point x="40.0" y="366.0" />
+              <point x="99.06911764705865" y="366.0" />
+              <point x="99.06911764705865" y="237.0" />
+              <point x="185.6645944741531" y="237.0" />
+              <point x="-22.75" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.FourHourChargeAlgorithm" target="com.trafficmon.ChargeAlgorithm">
+              <point x="-47.0" y="-14.5" />
+              <point x="1018.3164215686274" y="366.0" />
+              <point x="1008.6891488413546" y="366.0" />
+              <point x="55.59999999999991" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.AccountsService" target="com.trafficmon.Account">
+              <point x="0.0" y="-14.5" />
+              <point x="253.27854278074858" y="237.0" />
+              <point x="231.1645944741531" y="237.0" />
+              <point x="22.75" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.InsufficientCreditException">
+              <point x="7.625" y="-14.5" />
+              <point x="677.4612967914436" y="316.0" />
+              <point x="720.590909090909" y="316.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.builder" target="com.trafficmon.FourHourChargeAlgorithm">
+              <point x="38.636363636363626" y="-14.5" />
+              <point x="497.5862967914436" y="485.0" />
+              <point x="1065.3164215686274" y="485.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.ControllableClock" target="com.trafficmon.Clock">
+              <point x="0.0" y="-14.5" />
+              <point x="415.588057040998" y="59.0" />
+              <point x="857.190909090909" y="59.0" />
+              <point x="-30.399999999999977" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.AccountNotRegisteredException">
+              <point x="-22.875" y="-14.5" />
+              <point x="646.9612967914436" y="316.0" />
+              <point x="495.590909090909" y="316.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.builder" target="com.trafficmon.CongestionChargeSystem">
+              <point x="7.727272727272748" y="-14.5" />
+              <point x="466.6772058823527" y="445.0" />
+              <point x="624.0862967914436" y="445.0" />
+              <point x="-45.75" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.ZoneBoundaryCrossing" target="com.trafficmon.SystemClock">
+              <point x="34.0" y="-14.5" />
+              <point x="979.9520053475935" y="148.0" />
+              <point x="1013.4520053475935" y="148.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.Account" target="com.trafficmon.Vehicle">
+              <point x="-22.75" y="-14.5" />
+              <point x="185.6645944741531" y="138.0" />
+              <point x="513.7547237076647" y="138.0" />
+              <point x="-35.83333333333337" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.RegisteredCustomerAccountsService" target="com.trafficmon.AccountsService">
+              <point x="0.0" y="-14.5" />
+              <point x="120.0" y="356.0" />
+              <point x="197.8618761140819" y="356.0" />
+              <point x="-55.416666666666686" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.OperationsTeam" target="com.trafficmon.PenaltiesService">
+              <point x="-34.0" y="-14.5" />
+              <point x="302.72727272727263" y="366.0" />
+              <point x="364.090909090909" y="366.0" />
+              <point x="-55.0" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.PenaltiesService">
+              <point x="-38.125" y="-14.5" />
+              <point x="631.7112967914436" y="326.0" />
+              <point x="474.090909090909" y="326.0" />
+              <point x="55.0" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.ZoneBoundaryCrossing">
+              <point x="38.125" y="-14.5" />
+              <point x="707.9612967914436" y="336.0" />
+              <point x="843.965909090909" y="336.0" />
+              <point x="843.965909090909" y="227.0" />
+              <point x="882.2020053475935" y="227.0" />
+              <point x="-63.75" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.AccountsService">
+              <point x="-83.875" y="-14.5" />
+              <point x="585.9612967914436" y="356.0" />
+              <point x="286.5285427807486" y="356.0" />
+              <point x="33.25" y="14.5" />
+            </edge>
+            <edge source="com.trafficmon.CongestionChargeSystem" target="com.trafficmon.Clock">
+              <point x="22.875" y="-14.5" />
+              <point x="692.7112967914436" y="326.0" />
+              <point x="825.590909090909" y="326.0" />
+              <point x="825.590909090909" y="69.0" />
+              <point x="872.390909090909" y="69.0" />
+              <point x="-15.200000000000045" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.1313691507798962" x="398.94742686562256" y="459.73018145401636" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/trafficmon/CongestionSystemIntegrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -761,7 +1411,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
