@@ -1,11 +1,12 @@
 package com.trafficmon;
 
 import java.math.BigDecimal;
-import java.time.LocalTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import static java.time.temporal.ChronoUnit.SECONDS;
+import static com.trafficmon.ZoneBoundaryCrossing.*;
 
 public class CongestionChargeSystem {
 
@@ -24,19 +25,19 @@ public class CongestionChargeSystem {
     }
 
     public void vehicleEnteringZone(Vehicle vehicle) {
-        eventLog.add(ZoneBoundaryCrossing.createEntryEvent(vehicle));
-        System.out.println(ZoneBoundaryCrossing.clock.now());
+        eventLog.add(createEntryEvent(vehicle));
+        System.out.println(clock.now());
     }
 
     public void vehicleEnteringZone(Vehicle vehicle,Clock clock) {
-        eventLog.add(ZoneBoundaryCrossing.createEntryEventWithClock(vehicle,clock));
+        eventLog.add(createEntryEventWithClock(vehicle,clock));
     }
 
     public void vehicleLeavingZone(Vehicle vehicle) {
         if (!previouslyRegistered(vehicle)) {
             return;
         }
-        eventLog.add(ZoneBoundaryCrossing.createExitEvent(vehicle));
+        eventLog.add(createExitEvent(vehicle));
     }
 
 
@@ -44,7 +45,7 @@ public class CongestionChargeSystem {
         if (!previouslyRegistered(vehicle)) {
             return;
         }
-        eventLog.add(ZoneBoundaryCrossing.createExitEventWithClock(vehicle,clock));
+        eventLog.add(createExitEventWithClock(vehicle,clock));
     }
 
 

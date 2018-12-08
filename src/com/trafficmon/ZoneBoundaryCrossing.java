@@ -10,11 +10,11 @@ public class ZoneBoundaryCrossing {
         static Clock clock = new SystemClock();
         private final String typeofEvent;
 
-    public static ZoneBoundaryCrossing createExitEvent(Vehicle vehicle) {
+    static ZoneBoundaryCrossing createExitEvent(Vehicle vehicle) {
         return new ZoneBoundaryCrossing(vehicle,"Exit");
     }
 
-    public static ZoneBoundaryCrossing createExitEventWithClock(Vehicle vehicle, Clock clock) {
+    static ZoneBoundaryCrossing createExitEventWithClock(Vehicle vehicle, Clock clock) {
         return new ZoneBoundaryCrossing(vehicle, clock,"Exit");
     }
 
@@ -23,23 +23,22 @@ public class ZoneBoundaryCrossing {
         return typeofEvent;
     }
 
-    public ZoneBoundaryCrossing(Vehicle vehicle, String typeofEvent) {
+    private ZoneBoundaryCrossing(Vehicle vehicle, String typeofEvent) {
+            this.vehicle = vehicle;
+            this.time = clock.now();
+            this.typeofEvent = typeofEvent;
+        }
+        private ZoneBoundaryCrossing(Vehicle vehicle, Clock clock, String typeofEvent){
             this.vehicle = vehicle;
             this.time = clock.now();
             this.typeofEvent = typeofEvent;
         }
 
-        public ZoneBoundaryCrossing(Vehicle vehicle,Clock clock,String typeofEvent){
-            this.vehicle = vehicle;
-            this.time = clock.now();
-            this.typeofEvent = typeofEvent;
-        }
-
-    public static ZoneBoundaryCrossing createEntryEvent(Vehicle vehicleRegistration) {
+    static ZoneBoundaryCrossing createEntryEvent(Vehicle vehicleRegistration) {
         return new ZoneBoundaryCrossing(vehicleRegistration,clock,"Entry");
     }
 
-    public static ZoneBoundaryCrossing createEntryEventWithClock(Vehicle vehicleRegistration, Clock clock) {
+    static ZoneBoundaryCrossing createEntryEventWithClock(Vehicle vehicleRegistration, Clock clock) {
         return new ZoneBoundaryCrossing(vehicleRegistration, clock,"Entry");
     }
 
