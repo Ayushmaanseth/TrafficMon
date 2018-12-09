@@ -25,9 +25,9 @@ public class CongestionSystemUnitTest {
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
     private final PrintStream originalErr = System.err;
-    public final Vehicle TEST_VEHICLE = Vehicle.withRegistration("K083 1LD");
     private final ControllableClock clock = new ControllableClock();
     private final Vehicle testVehicle = Vehicle.withRegistration("Test");
+    private final Vehicle testVehicle2 = Vehicle.withRegistration("Test Vehicle");
 
     public CongestionSystemUnitTest() {
 
@@ -69,15 +69,15 @@ public class CongestionSystemUnitTest {
                                                             setAccountsService(accountsService).setPenaltiesService(penaltiesService).build();
         context.checking(new Expectations(){{
             exactly(1).of(chargeAlgorithm).calculateChargeForTimeInZone(crossings); will(returnValue(new BigDecimal(4)));
-            exactly(1).of(accountsService).accountFor(Vehicle.withRegistration("Test Vehicle")); will(returnValue(ACCOUNT));
+            exactly(1).of(accountsService).accountFor(testVehicle2); will(returnValue(ACCOUNT));
 
         }});
         clock.currentTimeIs(15,0);
-        crossings.add(createEntryEvent(Vehicle.withRegistration("Test Vehicle"), clock));
-        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("Test Vehicle"), clock);
+        crossings.add(createEntryEvent(testVehicle2, clock));
+        congestionChargeSystem.vehicleEnteringZone(testVehicle2, clock);
         clock.currentTimeIs(15,30);
-        crossings.add(createExitEvent(Vehicle.withRegistration("Test Vehicle"), clock));
-        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("Test Vehicle"), clock);
+        crossings.add(createExitEvent(testVehicle2, clock));
+        congestionChargeSystem.vehicleLeavingZone(testVehicle2, clock);
         congestionChargeSystem.calculateCharges();
     }
 
@@ -89,14 +89,14 @@ public class CongestionSystemUnitTest {
         context.checking(new Expectations(){{
 
             exactly(1).of(chargeAlgorithm).calculateChargeForTimeInZone(crossings); will(returnValue(new BigDecimal(6)));
-            exactly(1).of(accountsService).accountFor(Vehicle.withRegistration("Test Vehicle")); will(returnValue(ACCOUNT));
+            exactly(1).of(accountsService).accountFor(testVehicle2); will(returnValue(ACCOUNT));
         }});
         clock.currentTimeIs(10,00);
-        crossings.add(createEntryEvent(Vehicle.withRegistration("Test Vehicle"),clock));
-        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("Test Vehicle"),clock);
+        crossings.add(createEntryEvent(testVehicle2,clock));
+        congestionChargeSystem.vehicleEnteringZone(testVehicle2,clock);
         clock.currentTimeIs(11,00);
-        crossings.add(createExitEvent(Vehicle.withRegistration("Test Vehicle"),clock));
-        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("Test Vehicle"),clock);
+        crossings.add(createExitEvent(testVehicle2,clock));
+        congestionChargeSystem.vehicleLeavingZone(testVehicle2,clock);
         congestionChargeSystem.calculateCharges();
 
     }
@@ -157,7 +157,7 @@ public class CongestionSystemUnitTest {
         clock.currentTimeIs(14,38);
         crossings.add(createEntryEvent(Vehicle.withRegistration("K083 1LD"),clock));
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"),clock);
-        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("Test Vehicle"),clock);
+        congestionChargeSystem.vehicleLeavingZone(testVehicle2,clock);
         congestionChargeSystem.calculateCharges();
     }
 

@@ -115,8 +115,7 @@ public class CongestionChargeSystem {
 
     private boolean checkInstanceOrdering(ZoneBoundaryCrossing lastEvent, ZoneBoundaryCrossing crossing, String typeOfEvent){
         if (crossing.getTypeofEvent().equals(typeOfEvent)) return true;
-        if (lastEvent.getTypeofEvent().equals(typeOfEvent)) return true;
-        return false;
+        return lastEvent.getTypeofEvent().equals(typeOfEvent);
     }
 
 }

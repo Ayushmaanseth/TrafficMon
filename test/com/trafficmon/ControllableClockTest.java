@@ -1,13 +1,8 @@
 package com.trafficmon;
 import org.junit.Test;
 
-import java.time.temporal.ChronoUnit.*;
-
 import static java.time.temporal.ChronoUnit.MINUTES;
-import static java.time.temporal.ChronoUnit.SECONDS;
 import static junit.framework.TestCase.*;
-
-import java.time.LocalTime;
 
 
 public class ControllableClockTest {

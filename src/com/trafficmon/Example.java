@@ -6,7 +6,7 @@ public class Example {
 
     public static ControllableClock clock = new ControllableClock();
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
 
 

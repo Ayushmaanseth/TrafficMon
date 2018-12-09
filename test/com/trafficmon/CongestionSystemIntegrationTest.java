@@ -236,7 +236,7 @@ public class CongestionSystemIntegrationTest {
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"),clock);
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"),clock);
         congestionChargeSystem.calculateCharges();
-        assertThat(outContent.toString(),is("Mismatched entries/exits. Triggering investigation into vehicle: Vehicle [K083 1LD]\r\n"));
+        assertThat(outContent.toString(),containsString("Mismatched entries/exits. Triggering investigation into vehicle: Vehicle [K083 1LD]"));
 
     }
 
@@ -249,7 +249,7 @@ public class CongestionSystemIntegrationTest {
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("abc"),clock);
 
         congestionChargeSystem.calculateCharges();
-        assertThat(outContent.toString(),is("Penalty notice for: Vehicle [abc]\r\n"));
+        assertThat(outContent.toString(),containsString("Penalty notice for: Vehicle [abc]"));
 
     }
 
