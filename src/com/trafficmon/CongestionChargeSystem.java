@@ -10,7 +10,7 @@ import static com.trafficmon.ZoneBoundaryCrossing.*;
 
 public class CongestionChargeSystem {
 
-    public static final BigDecimal CHARGE_RATE_POUNDS_PER_MINUTE = new BigDecimal(3000);
+    public static final BigDecimal CHARGE_RATE_POUNDS_PER_MINUTE = new BigDecimal(0.05);
 
     private final List<ZoneBoundaryCrossing> eventLog = new ArrayList<>();
 
@@ -26,11 +26,10 @@ public class CongestionChargeSystem {
 
     public void vehicleEnteringZone(Vehicle vehicle) {
         eventLog.add(createEntryEvent(vehicle));
-        System.out.println(clock.now());
     }
 
     public void vehicleEnteringZone(Vehicle vehicle,Clock clock) {
-        eventLog.add(createEntryEventWithClock(vehicle,clock));
+        eventLog.add(createEntryEvent(vehicle,clock));
     }
 
     public void vehicleLeavingZone(Vehicle vehicle) {
@@ -45,7 +44,7 @@ public class CongestionChargeSystem {
         if (!previouslyRegistered(vehicle)) {
             return;
         }
-        eventLog.add(createExitEventWithClock(vehicle,clock));
+        eventLog.add(createExitEvent(vehicle,clock));
     }
 
 

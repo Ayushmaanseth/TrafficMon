@@ -14,10 +14,9 @@ public class ZoneBoundaryCrossing {
         return new ZoneBoundaryCrossing(vehicle,"Exit");
     }
 
-    static ZoneBoundaryCrossing createExitEventWithClock(Vehicle vehicle, Clock clock) {
+    static ZoneBoundaryCrossing createExitEvent(Vehicle vehicle, Clock clock) {
         return new ZoneBoundaryCrossing(vehicle, clock,"Exit");
     }
-
 
     public String getTypeofEvent() {
         return typeofEvent;
@@ -38,7 +37,7 @@ public class ZoneBoundaryCrossing {
         return new ZoneBoundaryCrossing(vehicleRegistration,clock,"Entry");
     }
 
-    static ZoneBoundaryCrossing createEntryEventWithClock(Vehicle vehicleRegistration, Clock clock) {
+    static ZoneBoundaryCrossing createEntryEvent(Vehicle vehicleRegistration, Clock clock) {
         return new ZoneBoundaryCrossing(vehicleRegistration, clock,"Entry");
     }
 

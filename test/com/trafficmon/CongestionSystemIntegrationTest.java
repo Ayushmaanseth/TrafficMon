@@ -1,21 +1,13 @@
 package com.trafficmon;
-import static junit.framework.TestCase.assertEquals;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.CoreMatchers.containsString;
-
-import org.jmock.Expectations;
-import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.math.BigDecimal;
 import java.time.LocalTime;
-import java.util.List;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 
 public class CongestionSystemIntegrationTest {
@@ -25,11 +17,6 @@ public class CongestionSystemIntegrationTest {
     private final PrintStream originalErr = System.err;
     private final ControllableClock clock = new ControllableClock();
 
-    @Rule
-    public JUnitRuleMockery context = new JUnitRuleMockery();
-    private AccountsService accountsService = context.mock(AccountsService.class);
-    private PenaltiesService penaltiesService = context.mock(PenaltiesService.class);
-    private ChargeAlgorithm chargeAlgorithm = context.mock(ChargeAlgorithm.class);
     private CongestionChargeSystem congestionChargeSystem = new builder().build();
 
 
@@ -49,23 +36,10 @@ public class CongestionSystemIntegrationTest {
         Thread.sleep(secs * 1000);
     }
 
-    @Test
-    public void TestSystemClock() throws InterruptedException {
-        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
-        delaySeconds(1);
-        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"));
-        congestionChargeSystem.calculateCharges();
-        if (!outContent.toString().contains("Penalty")) {
-            if(LocalTime.now().compareTo(LocalTime.of(14,0)) < 0)
-            assertThat(outContent.toString().split(",")[1], containsString("£6.00"));
-            else{
-                assertThat(outContent.toString().split(",")[1], containsString("£4.00"));
-            }
-        }
-    }
+
 
     @Test
-    public void TimeTest() {
+    public void MultipleEntriesAndExitsTest() {
 
         clock.currentTimeIs(1, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
@@ -94,11 +68,6 @@ public class CongestionSystemIntegrationTest {
     @Test
     public void InvestigationTestForInvalidTimeEntryAndExit() {
 
-
-        context.checking(new Expectations() {{
-            allowing(penaltiesService).issuePenaltyNotice(Vehicle.withRegistration("K083 1LD"), new BigDecimal(22));
-            allowing(penaltiesService).triggerInvestigationInto(Vehicle.withRegistration("K083 1LD"));
-        }});
         clock.currentTimeIs(2, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(2, 30);
@@ -168,7 +137,7 @@ public class CongestionSystemIntegrationTest {
     }
 
     @Test
-    public void TestOverlappingCharges() throws AccountNotRegisteredException {
+    public void SingleVehicleEnteringAndExitingMoreThanOnceaaq() throws AccountNotRegisteredException {
 
 
         clock.currentTimeIs(11, 0);
@@ -186,7 +155,7 @@ public class CongestionSystemIntegrationTest {
     }
 
     @Test
-    public void MultipleChargeDeduction() throws AccountNotRegisteredException {
+    public void SingleVehicleTest() throws AccountNotRegisteredException {
 
 
         clock.currentTimeIs(11, 0);
@@ -246,10 +215,68 @@ public class CongestionSystemIntegrationTest {
     }
 
     @Test
-    public void NewAlgorithmTest(){
+    public void AnyOtherAlgorithmWorksFineWithTheSystem(){
+        CongestionChargeSystem congestionChargeSystem = new builder().setChargeAlgorithm(new OldAlgorithm()).build();
+        clock.currentTimeIs(11, 0);
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
+        clock.currentTimeIs(11, 30);
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"),clock);
+        congestionChargeSystem.calculateCharges();
+        if (!outContent.toString().contains("Penalty")) {
+            assertThat(outContent.toString().split(",")[1], containsString("£1.50"));
+        }
+    }
+
+    @Test
+    public void ExpectInvestigationTriggerWithAnyOtherAlgorithm(){
+        CongestionChargeSystem congestionChargeSystem = new builder().setChargeAlgorithm(new OldAlgorithm()).build();
+        clock.currentTimeIs(11, 0);
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
+        clock.currentTimeIs(11, 30);
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"),clock);
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"),clock);
+        congestionChargeSystem.calculateCharges();
+        assertThat(outContent.toString(),is("Mismatched entries/exits. Triggering investigation into vehicle: Vehicle [K083 1LD]\r\n"));
 
     }
 
+    @Test
+    public void ExpectPenaltyNoticeWithAnyOtherAlgorithm(){
+        CongestionChargeSystem congestionChargeSystem = new builder().setChargeAlgorithm(new OldAlgorithm()).build();
+        clock.currentTimeIs(11, 0);
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("abc"), clock);
+        clock.currentTimeIs(11, 30);
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("abc"),clock);
+
+        congestionChargeSystem.calculateCharges();
+        assertThat(outContent.toString(),is("Penalty notice for: Vehicle [abc]\r\n"));
+
+    }
+
+
+    @Test
+    public void TestSystemClockWithOneSecondDelay() throws InterruptedException {
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
+        delaySeconds(1);
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"));
+        congestionChargeSystem.calculateCharges();
+        if (!outContent.toString().contains("Penalty")) {
+            if(LocalTime.now().compareTo(LocalTime.of(14,0)) < 0)
+                assertThat(outContent.toString().split(",")[1], containsString("£6.00"));
+            else{
+                assertThat(outContent.toString().split(",")[1], containsString("£4.00"));
+            }
+        }
+    }
+
+    @Test
+    public void TestWithSystemClockForNoPreviouslyRegisteredVehicle() {
+        CongestionChargeSystem congestionChargeSystem = new builder().setChargeAlgorithm(new OldAlgorithm()).build();
+        congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
+        congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("test"));
+        congestionChargeSystem.calculateCharges();
+        assertThat(outContent.toString().split(",")[1], containsString("£0.00"));
+    }
 
 }
 

@@ -18,7 +18,7 @@ public class FourHourChargeAlgorithm implements ChargeAlgorithm{
         LocalTime first_entry = lastEvent.timestamp();
         int flag = 0;
         for (ZoneBoundaryCrossing crossing : crossings.subList(1, crossings.size())) {
-            if (crossing.getTypeofEvent() == "Exit") {
+            if (crossing.getTypeofEvent().equals("Exit")) {
 
                 ChargeHelper chargeHelper = new ChargeHelper(charge, lastEvent, totalTime, first_entry, flag, crossing).invoke();
                 if (chargeHelper.is()) {

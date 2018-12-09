@@ -18,10 +18,10 @@ public class ZoneBoundaryCrossingTest
         List<ZoneBoundaryCrossing> crossings = new ArrayList<>();
 
         clock.currentTimeIs(10,00);
-        crossings.add(ZoneBoundaryCrossing.createEntryEventWithClock(Vehicle.withRegistration("Test Vehicle"), clock));
+        crossings.add(ZoneBoundaryCrossing.createEntryEvent(Vehicle.withRegistration("Test Vehicle"), clock));
 
         clock.currentTimeIs(10,00);
-        crossings.add(ZoneBoundaryCrossing.createEntryEventWithClock(Vehicle.withRegistration("Test Vehicle"), clock));
+        crossings.add(ZoneBoundaryCrossing.createEntryEvent(Vehicle.withRegistration("Test Vehicle"), clock));
         assertTrue(crossings.get(0).equals(crossings.get(1)));
     }
 
@@ -30,10 +30,10 @@ public class ZoneBoundaryCrossingTest
         List<ZoneBoundaryCrossing> crossings = new ArrayList<>();
 
         clock.currentTimeIs(10,00);
-        crossings.add(ZoneBoundaryCrossing.createEntryEventWithClock(Vehicle.withRegistration("Test Vehicle"), clock));
+        crossings.add(ZoneBoundaryCrossing.createEntryEvent(Vehicle.withRegistration("Test Vehicle"), clock));
 
         clock.currentTimeIs(10,00);
-        crossings.add(ZoneBoundaryCrossing.createEntryEventWithClock(Vehicle.withRegistration("Test Vehicle"), clock));
+        crossings.add(ZoneBoundaryCrossing.createEntryEvent(Vehicle.withRegistration("Test Vehicle"), clock));
 
         assertEquals(crossings.get(0).hashCode(),crossings.get(1).hashCode());
 
