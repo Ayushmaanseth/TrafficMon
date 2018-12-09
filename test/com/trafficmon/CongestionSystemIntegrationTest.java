@@ -17,7 +17,7 @@ public class CongestionSystemIntegrationTest {
     private final PrintStream originalErr = System.err;
     private final ControllableClock clock = new ControllableClock();
 
-    private CongestionChargeSystem congestionChargeSystem = new builder().build();
+    private CongestionChargeSystem congestionChargeSystem = Builder.createBuilder().build();
 
 
     @Before
@@ -216,7 +216,7 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void AnyOtherAlgorithmWorksFineWithTheSystem(){
-        CongestionChargeSystem congestionChargeSystem = new builder().setChargeAlgorithm(new OldAlgorithm()).build();
+        CongestionChargeSystem congestionChargeSystem = Builder.createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
         clock.currentTimeIs(11, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(11, 30);
@@ -229,7 +229,7 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void ExpectInvestigationTriggerWithAnyOtherAlgorithm(){
-        CongestionChargeSystem congestionChargeSystem = new builder().setChargeAlgorithm(new OldAlgorithm()).build();
+        CongestionChargeSystem congestionChargeSystem = Builder.createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
         clock.currentTimeIs(11, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(11, 30);
@@ -242,7 +242,7 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void ExpectPenaltyNoticeWithAnyOtherAlgorithm(){
-        CongestionChargeSystem congestionChargeSystem = new builder().setChargeAlgorithm(new OldAlgorithm()).build();
+        CongestionChargeSystem congestionChargeSystem = Builder.createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
         clock.currentTimeIs(11, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("abc"), clock);
         clock.currentTimeIs(11, 30);
@@ -271,7 +271,7 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void TestWithSystemClockForNoPreviouslyRegisteredVehicle() {
-        CongestionChargeSystem congestionChargeSystem = new builder().setChargeAlgorithm(new OldAlgorithm()).build();
+        CongestionChargeSystem congestionChargeSystem = Builder.createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("test"));
         congestionChargeSystem.calculateCharges();

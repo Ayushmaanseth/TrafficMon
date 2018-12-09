@@ -10,6 +10,14 @@ public class ZoneBoundaryCrossing {
         static Clock clock = new SystemClock();
         private final String typeofEvent;
 
+    static ZoneBoundaryCrossing createEntryEvent(Vehicle vehicleRegistration) {
+        return new ZoneBoundaryCrossing(vehicleRegistration,clock,"Entry");
+    }
+
+    static ZoneBoundaryCrossing createEntryEvent(Vehicle vehicleRegistration, Clock clock) {
+        return new ZoneBoundaryCrossing(vehicleRegistration, clock,"Entry");
+    }
+
     static ZoneBoundaryCrossing createExitEvent(Vehicle vehicle) {
         return new ZoneBoundaryCrossing(vehicle,"Exit");
     }
@@ -33,13 +41,7 @@ public class ZoneBoundaryCrossing {
             this.typeofEvent = typeofEvent;
         }
 
-    static ZoneBoundaryCrossing createEntryEvent(Vehicle vehicleRegistration) {
-        return new ZoneBoundaryCrossing(vehicleRegistration,clock,"Entry");
-    }
 
-    static ZoneBoundaryCrossing createEntryEvent(Vehicle vehicleRegistration, Clock clock) {
-        return new ZoneBoundaryCrossing(vehicleRegistration, clock,"Entry");
-    }
 
     public Vehicle getVehicle() {
             return vehicle;

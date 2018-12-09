@@ -1,21 +1,28 @@
 package com.trafficmon;
 
-public class builder {
+public class Builder {
     private ChargeAlgorithm chargeAlgorithm = new FourHourChargeAlgorithm();
     private AccountsService accountsService = RegisteredCustomerAccountsService.getInstance();
     private PenaltiesService penaltiesService = OperationsTeam.getInstance();
 
-    public builder setChargeAlgorithm(ChargeAlgorithm chargeAlgorithm) {
+    private Builder() {
+    }
+
+    public static Builder createBuilder() {
+        return new Builder();
+    }
+
+    public Builder setChargeAlgorithm(ChargeAlgorithm chargeAlgorithm) {
         this.chargeAlgorithm = chargeAlgorithm;
         return this;
     }
 
-    public builder setAccountsService(AccountsService accountsService) {
+    public Builder setAccountsService(AccountsService accountsService) {
         this.accountsService = accountsService;
         return this;
     }
 
-    public builder setPenaltiesService(PenaltiesService penaltiesService) {
+    public Builder setPenaltiesService(PenaltiesService penaltiesService) {
         this.penaltiesService = penaltiesService;
         return this;
     }

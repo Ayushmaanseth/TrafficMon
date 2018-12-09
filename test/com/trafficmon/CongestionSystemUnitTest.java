@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.trafficmon.Builder.*;
 import static com.trafficmon.ZoneBoundaryCrossing.*;
 
 
@@ -44,7 +45,7 @@ public class CongestionSystemUnitTest {
     private AccountsService accountsService = context.mock(AccountsService.class);
     private PenaltiesService penaltiesService = context.mock(PenaltiesService.class);
     private ChargeAlgorithm chargeAlgorithm = context.mock(ChargeAlgorithm.class);
-    private CongestionChargeSystem congestionChargeSystem = new builder().setChargeAlgorithm(chargeAlgorithm).setAccountsService(accountsService).setPenaltiesService(penaltiesService).build();
+    private CongestionChargeSystem congestionChargeSystem = createBuilder().setChargeAlgorithm(chargeAlgorithm).setAccountsService(accountsService).setPenaltiesService(penaltiesService).build();
 
 
 
@@ -64,7 +65,7 @@ public class CongestionSystemUnitTest {
     @Test
     public void ChargesFourPoundsForEnteringAfterTwoPM() throws AccountNotRegisteredException {
         List<ZoneBoundaryCrossing> crossings = new ArrayList<>();
-        CongestionChargeSystem congestionChargeSystem = new builder().setChargeAlgorithm(chargeAlgorithm).
+        CongestionChargeSystem congestionChargeSystem = createBuilder().setChargeAlgorithm(chargeAlgorithm).
                                                             setAccountsService(accountsService).setPenaltiesService(penaltiesService).build();
         context.checking(new Expectations(){{
             exactly(1).of(chargeAlgorithm).calculateChargeForTimeInZone(crossings); will(returnValue(new BigDecimal(4)));
