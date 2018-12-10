@@ -2,12 +2,14 @@ package com.trafficmon;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.time.LocalTime;
+
+import static com.trafficmon.Builder.createBuilder;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 
 
 public class CongestionSystemIntegrationTest {
@@ -17,7 +19,7 @@ public class CongestionSystemIntegrationTest {
     private final PrintStream originalErr = System.err;
     private final ControllableClock clock = new ControllableClock();
 
-    private CongestionChargeSystem congestionChargeSystem = Builder.createBuilder().build();
+    private CongestionChargeSystem congestionChargeSystem = createBuilder().build();
 
 
     @Before
@@ -61,8 +63,6 @@ public class CongestionSystemIntegrationTest {
         if (!outContent.toString().contains("Penalty")) {
             assertThat(outContent.toString().split(",")[1], containsString("£22.00"));
         }
-
-
     }
 
     @Test
@@ -85,11 +85,11 @@ public class CongestionSystemIntegrationTest {
         clock.currentTimeIs(1, 30);
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"), clock);
         congestionChargeSystem.calculateCharges();
-
+        assertThat(outContent.toString().split(",")[1], containsString(""));
     }
 
     @Test
-    public void TestCorrectCharges() throws AccountNotRegisteredException {
+    public void TestCorrectCharges() {
 
 
 
@@ -105,7 +105,7 @@ public class CongestionSystemIntegrationTest {
 
 
     @Test
-    public void TestCorrectChargesForMoreThanFourHours() throws AccountNotRegisteredException {
+    public void TestCorrectChargesForMoreThanFourHours() {
 
 
         clock.currentTimeIs(2, 0);
@@ -119,7 +119,7 @@ public class CongestionSystemIntegrationTest {
     }
 
     @Test
-    public void TestOvernightCharges() throws AccountNotRegisteredException {
+    public void TestOvernightCharges() {
 
 
         clock.currentTimeIs(2, 0);
@@ -137,7 +137,7 @@ public class CongestionSystemIntegrationTest {
     }
 
     @Test
-    public void SingleVehicleEnteringAndExitingMoreThanOnceaaq() throws AccountNotRegisteredException {
+    public void SingleVehicleEnteringAndExitingMoreThanOnceaaq() {
 
 
         clock.currentTimeIs(11, 0);
@@ -155,7 +155,7 @@ public class CongestionSystemIntegrationTest {
     }
 
     @Test
-    public void SingleVehicleTest() throws AccountNotRegisteredException {
+    public void SingleVehicleTest() {
 
 
         clock.currentTimeIs(11, 0);
@@ -169,7 +169,7 @@ public class CongestionSystemIntegrationTest {
     }
 
     @Test
-    public void MultipleVehiclesEnteringAndExitingBeforeTwo() throws AccountNotRegisteredException {
+    public void MultipleVehiclesEnteringAndExitingBeforeTwo() {
 
 
         clock.currentTimeIs(11, 0);
@@ -190,7 +190,7 @@ public class CongestionSystemIntegrationTest {
     }
 
     @Test
-    public void MultipleVehiclesEnteringAndExitingAfterTwo() throws AccountNotRegisteredException {
+    public void MultipleVehiclesEnteringAndExitingAfterTwo() {
 
 
         clock.currentTimeIs(11, 0);
@@ -216,7 +216,7 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void AnyOtherAlgorithmWorksFineWithTheSystem(){
-        CongestionChargeSystem congestionChargeSystem = Builder.createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
+        CongestionChargeSystem congestionChargeSystem = createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
         clock.currentTimeIs(11, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(11, 30);
@@ -229,7 +229,7 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void ExpectInvestigationTriggerWithAnyOtherAlgorithm(){
-        CongestionChargeSystem congestionChargeSystem = Builder.createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
+        CongestionChargeSystem congestionChargeSystem = createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
         clock.currentTimeIs(11, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(11, 30);
@@ -242,7 +242,7 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void ExpectPenaltyNoticeWithAnyOtherAlgorithm(){
-        CongestionChargeSystem congestionChargeSystem = Builder.createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
+        CongestionChargeSystem congestionChargeSystem = createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
         clock.currentTimeIs(11, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("abc"), clock);
         clock.currentTimeIs(11, 30);
@@ -271,12 +271,15 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void TestWithSystemClockForNoPreviouslyRegisteredVehicle() {
-        CongestionChargeSystem congestionChargeSystem = Builder.createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
+        CongestionChargeSystem congestionChargeSystem = createBuilder().setChargeAlgorithm(new OldAlgorithm()).build();
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("test"));
         congestionChargeSystem.calculateCharges();
         assertThat(outContent.toString().split(",")[1], containsString("£0.00"));
     }
+
+
+
 
 }
 

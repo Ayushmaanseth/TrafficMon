@@ -1,11 +1,12 @@
 package com.trafficmon;
 
 public class Builder {
-    private ChargeAlgorithm chargeAlgorithm = new FourHourChargeAlgorithm();
+    private ChargeAlgorithm chargeAlgorithm;
     private AccountsService accountsService = RegisteredCustomerAccountsService.getInstance();
     private PenaltiesService penaltiesService = OperationsTeam.getInstance();
 
     private Builder() {
+        chargeAlgorithm = new PredictableChargeAlgorithm();
     }
 
     public static Builder createBuilder() {

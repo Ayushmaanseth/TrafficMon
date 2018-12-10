@@ -3,12 +3,9 @@ package com.trafficmon;
 import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.util.List;
-
 import static java.time.temporal.ChronoUnit.SECONDS;
 
-public class FourHourChargeAlgorithm implements ChargeAlgorithm{
-    public FourHourChargeAlgorithm() {
-    }
+public class PredictableChargeAlgorithm implements ChargeAlgorithm{
 
     public BigDecimal calculateChargeForTimeInZone(List<ZoneBoundaryCrossing> crossings) {
 
