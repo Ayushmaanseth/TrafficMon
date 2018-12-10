@@ -19,8 +19,6 @@ public class CongestionSystemIntegrationTest {
     private final PrintStream originalErr = System.err;
     private final ControllableClock clock = new ControllableClock();
 
-    private CongestionChargeSystem congestionChargeSystem = createBuilder().build();
-
 
     @Before
     public void setUpStreams() {
@@ -42,7 +40,7 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void MultipleEntriesAndExitsTest() {
-
+        CongestionChargeSystem congestionChargeSystem = createBuilder().build();
         clock.currentTimeIs(1, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(1, 30);
@@ -67,7 +65,7 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void InvestigationTestForInvalidTimeEntryAndExit() {
-
+        CongestionChargeSystem congestionChargeSystem = createBuilder().build();
         clock.currentTimeIs(2, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(2, 30);
@@ -85,14 +83,14 @@ public class CongestionSystemIntegrationTest {
         clock.currentTimeIs(1, 30);
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"), clock);
         congestionChargeSystem.calculateCharges();
-        assertThat(outContent.toString().split(",")[1], containsString(""));
+        assertThat(outContent.toString(), containsString("Mismatched entries/exits. Triggering investigation into vehicle: Vehicle [K083 1LD]"));
     }
 
     @Test
     public void TestCorrectCharges() {
 
 
-
+        CongestionChargeSystem congestionChargeSystem = createBuilder().build();
         clock.currentTimeIs(2, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(2, 30);
@@ -107,7 +105,7 @@ public class CongestionSystemIntegrationTest {
     @Test
     public void TestCorrectChargesForMoreThanFourHours() {
 
-
+        CongestionChargeSystem congestionChargeSystem = createBuilder().build();
         clock.currentTimeIs(2, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(6, 1);
@@ -121,7 +119,7 @@ public class CongestionSystemIntegrationTest {
     @Test
     public void TestOvernightCharges() {
 
-
+        CongestionChargeSystem congestionChargeSystem = createBuilder().build();
         clock.currentTimeIs(2, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(2, 30);
@@ -137,9 +135,9 @@ public class CongestionSystemIntegrationTest {
     }
 
     @Test
-    public void SingleVehicleEnteringAndExitingMoreThanOnceaaq() {
+    public void SingleVehicleEnteringAndExitingMoreThanOnce() {
 
-
+        CongestionChargeSystem congestionChargeSystem = createBuilder().build();
         clock.currentTimeIs(11, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(11, 30);
@@ -157,7 +155,7 @@ public class CongestionSystemIntegrationTest {
     @Test
     public void SingleVehicleTest() {
 
-
+        CongestionChargeSystem congestionChargeSystem = createBuilder().build();
         clock.currentTimeIs(11, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(11, 30);
@@ -171,7 +169,7 @@ public class CongestionSystemIntegrationTest {
     @Test
     public void MultipleVehiclesEnteringAndExitingBeforeTwo() {
 
-
+        CongestionChargeSystem congestionChargeSystem = createBuilder().build();
         clock.currentTimeIs(11, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(11, 30);
@@ -192,7 +190,7 @@ public class CongestionSystemIntegrationTest {
     @Test
     public void MultipleVehiclesEnteringAndExitingAfterTwo() {
 
-
+        CongestionChargeSystem congestionChargeSystem = createBuilder().build();
         clock.currentTimeIs(11, 0);
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"), clock);
         clock.currentTimeIs(11, 30);
@@ -205,7 +203,6 @@ public class CongestionSystemIntegrationTest {
         clock.currentTimeIs(16,0);
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("A123 XYZ"), clock);
         congestionChargeSystem.calculateCharges();
-
 
         if (!outContent.toString().contains("Penalty")) {
             assertThat(outContent.toString().split("\n")[0].split(",")[1], containsString("£10.00"));
@@ -256,6 +253,7 @@ public class CongestionSystemIntegrationTest {
 
     @Test
     public void TestSystemClockWithOneSecondDelay() throws InterruptedException {
+        CongestionChargeSystem congestionChargeSystem = createBuilder().build();
         congestionChargeSystem.vehicleEnteringZone(Vehicle.withRegistration("K083 1LD"));
         delaySeconds(1);
         congestionChargeSystem.vehicleLeavingZone(Vehicle.withRegistration("K083 1LD"));
