@@ -14,11 +14,12 @@ import java.util.List;
 
 import static com.trafficmon.Builder.*;
 import static com.trafficmon.ZoneBoundaryCrossing.*;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class CongestionSystemUnitTest {
 
-    private static final Account ACCOUNT = new Account("ABC", Vehicle.withRegistration("Test Vehicle"), new BigDecimal(10));
     private static final Account ACCOUNT2 = new Account("Janos",Vehicle.withRegistration("Test"),new BigDecimal(1));
     private static final Account ACCOUNT3 = new Account("LOL",Vehicle.withRegistration("K083 1LD"),new BigDecimal(7));
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -28,6 +29,7 @@ public class CongestionSystemUnitTest {
     private final ControllableClock clock = new ControllableClock();
     private final Vehicle testVehicle = Vehicle.withRegistration("Test");
     private final Vehicle testVehicle2 = Vehicle.withRegistration("Test Vehicle");
+    private final Vehicle testVehicle3 = Vehicle.withRegistration("K083 1LD");
 
     public CongestionSystemUnitTest() {
 
@@ -45,6 +47,7 @@ public class CongestionSystemUnitTest {
     private AccountsService accountsService = context.mock(AccountsService.class);
     private PenaltiesService penaltiesService = context.mock(PenaltiesService.class);
     private ChargeAlgorithm chargeAlgorithm = context.mock(ChargeAlgorithm.class);
+    private Wrapper wrapper = context.mock(Wrapper.class);
     private CongestionChargeSystem congestionChargeSystem = createBuilder().
             setChargeAlgorithm(chargeAlgorithm).setAccountsService(accountsService).setPenaltiesService(penaltiesService).build();
 
@@ -173,7 +176,6 @@ public class CongestionSystemUnitTest {
                                                         setPenaltiesService(penaltiesService).setChargeAlgorithm(new OldAlgorithm()).build();
         List<ZoneBoundaryCrossing> crossings = new ArrayList<>();
         final Account newAccount = new Account("ABC", Vehicle.withRegistration("Test Vehicle"), new BigDecimal(10));
-        final BigDecimal credit = new BigDecimal(0.05).multiply(new BigDecimal(105));
         context.checking(new Expectations(){{
 
             exactly(1).of(accountsService).accountFor(testVehicle2); will(returnValue(newAccount));
@@ -194,6 +196,41 @@ public class CongestionSystemUnitTest {
         congestionChargeSystem.calculateCharges();
 
     }
+    @Test
+    public void AdaptorInterfaceTest() throws AccountNotRegisteredException {
+        CongestionChargeSystem congestionChargeSystem = createBuilder().setPenaltiesService(wrapper).setAccountsService(wrapper).build();
+        final Account newAccount = new Account("ABC", Vehicle.withRegistration("Test Vehicle"), new BigDecimal(10));
+        context.checking(new Expectations(){{
 
+            exactly(1).of(wrapper).accountFor(testVehicle2); will(returnValue(newAccount));
+        }});
+        clock.currentTimeIs(6,00);
+        congestionChargeSystem.vehicleEnteringZone(testVehicle2,clock);
+        clock.currentTimeIs(7,00);
+        congestionChargeSystem.vehicleLeavingZone(testVehicle2,clock);
+        congestionChargeSystem.calculateCharges();
+    }
+    @Test
+    public void ConcreteAdaptorTestForRegisteredVehicle(){
+        CongestionChargeSystem congestionChargeSystem = createBuilder().setAccountsService(ConcreteWrapper.getInstance()).
+                setAccountsService(ConcreteWrapper.getInstance()).build();
+        clock.currentTimeIs(6,00);
+        congestionChargeSystem.vehicleEnteringZone(testVehicle2,clock);
+        clock.currentTimeIs(7,00);
+        congestionChargeSystem.vehicleLeavingZone(testVehicle2,clock);
+        congestionChargeSystem.calculateCharges();
+        assertThat(outContent.toString().split(",")[1], containsString("£6.00"));
+    }
+    @Test
+    public void ConcreteAdaptorTestForUnregisteredVehicle(){
+        CongestionChargeSystem congestionChargeSystem = createBuilder().setAccountsService(ConcreteWrapper.getInstance()).
+                setAccountsService(ConcreteWrapper.getInstance()).build();
+        clock.currentTimeIs(6,00);
+        congestionChargeSystem.vehicleEnteringZone(testVehicle3,clock);
+        clock.currentTimeIs(7,00);
+        congestionChargeSystem.vehicleLeavingZone(testVehicle3,clock);
+        congestionChargeSystem.calculateCharges();
+        assertThat(outContent.toString(), containsString("Penalty"));
+    }
 
 }

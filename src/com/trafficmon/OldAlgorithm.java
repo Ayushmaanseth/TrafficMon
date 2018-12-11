@@ -7,6 +7,8 @@ import static java.time.temporal.ChronoUnit.MINUTES;
 
 public class OldAlgorithm implements ChargeAlgorithm {
 
+    public static BigDecimal CHARGE_RATE_POUNDS_PER_MINUTE = new BigDecimal(0.05);
+
     public BigDecimal calculateChargeForTimeInZone(List<ZoneBoundaryCrossing> crossings) {
 
         BigDecimal charge = new BigDecimal(0);
@@ -18,7 +20,7 @@ public class OldAlgorithm implements ChargeAlgorithm {
             if (crossing.getTypeofEvent().equals("Exit")) {
                 charge = charge.add(
                         new BigDecimal(lastEvent.timestamp().until(crossing.timestamp(), MINUTES))
-                                .multiply(CongestionChargeSystem.CHARGE_RATE_POUNDS_PER_MINUTE));
+                                .multiply(CHARGE_RATE_POUNDS_PER_MINUTE));
             }
 
             lastEvent = crossing;

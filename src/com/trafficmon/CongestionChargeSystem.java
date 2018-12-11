@@ -10,8 +10,6 @@ import static com.trafficmon.ZoneBoundaryCrossing.*;
 
 public class CongestionChargeSystem {
 
-    public static final BigDecimal CHARGE_RATE_POUNDS_PER_MINUTE = new BigDecimal(0.05);
-
     private final List<ZoneBoundaryCrossing> eventLog = new ArrayList<>();
 
     private final AccountsService accountsService;
